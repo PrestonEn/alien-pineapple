@@ -1,5 +1,7 @@
 package com.pe12nh;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by preston on 2016-09-15.
@@ -20,9 +22,9 @@ public class LocusIndividual extends Individual {
 
         int newestGroup = 0;
 
-        for (int i = 0; i < sol.length; i++){
+        for (int i = 0; i < this.getGeneCount(); i++) {
             int from = i;
-            int to = sol[i];
+            int to = this.getGene(i);
             //if the grouping for the to node is not yet assigned
             if (grouping[to] == -1){
                 //if the from node has no grouping then make the pair in the same group
@@ -50,6 +52,7 @@ public class LocusIndividual extends Individual {
             }
         }
 
-        return groups;
+
+        return new ClusterSol();
     }
 }

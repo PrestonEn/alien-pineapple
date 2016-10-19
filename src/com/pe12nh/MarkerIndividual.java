@@ -9,12 +9,10 @@ public class MarkerIndividual extends Individual {
         return null;
     }
 
-    @Override
     void initGenes() {
 
     }
 
-    @Override
     ClusterSol decode() {
         return null;
     }
