@@ -16,6 +16,6 @@ public class ClusterSol {
     }
 
     void updateClusterSol(int nodeNum, int clusterNum){
-
+        
     }
 }
