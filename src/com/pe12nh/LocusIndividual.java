@@ -11,6 +11,7 @@ public class LocusIndividual extends Individual {
     @Override
     void initGenes() {
 
+
     }
 
     // decodes the solution into groups
@@ -51,8 +52,11 @@ public class LocusIndividual extends Individual {
                 }
             }
         }
+        ClusterSol clusters = new ClusterSol();
+        for (int i = 0; i < grouping.length; i++) {
+            clusters.updateClusterSol(i, grouping[i]);
+        }
 
-
-        return new ClusterSol();
+        return clusters;
     }
 }

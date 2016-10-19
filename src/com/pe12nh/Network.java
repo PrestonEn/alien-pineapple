@@ -13,9 +13,9 @@ import java.util.Scanner;
  * Credit to adam balint for implementing all the parsing logic for gml files
  */
 public class Network {
-    private int nodeCount;
-    private int edgeCount;
-    private boolean[][] adjMat;
+    int nodeCount;
+    int edgeCount;
+    boolean[][] adjMat;
     File f;
     private HashMap<Integer, List<Integer>> adjList;
 
@@ -89,7 +89,7 @@ public class Network {
             if (tmp[0].equals("source")){
                 source = Integer.parseInt(tmp[1]);
             }else if (tmp[0].equals("target")){
-                dest =  Integer.parseInt(tmp[1]);;
+                dest = Integer.parseInt(tmp[1]);
             }
             tmp = in.nextLine().trim().split(" ");
         }
@@ -119,6 +119,12 @@ public class Network {
             adjList.get(t).add(f);
         }
     }
+
+    public List getNeighbours(int i) {
+        return this.adjList.get(i);
+    }
+
+
 
 
     /**
