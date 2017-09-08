@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: json-20170516.jar commons-cli-1.4.jar sqlite-jdbc-3.20.0.j
+ ar GraphTools.jar sqlite-jdbc-3.20.0.jar
+Main-Class: com.brock.pe12nh.TasginGA.Main
+

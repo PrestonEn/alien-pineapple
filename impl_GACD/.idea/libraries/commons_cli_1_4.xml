@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/commons-cli-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/json-20170516.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/sqlite-jdbc-3.20.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

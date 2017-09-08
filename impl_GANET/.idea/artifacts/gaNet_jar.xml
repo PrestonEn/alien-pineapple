@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="gaNet:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/gaNet_jar</output-path>
+    <root id="root">
+      <element id="archive" name="gaNet.jar">
+        <element id="module-output" name="gaNet" />
+      </element>
+      <element id="library" level="project" name="GraphTools" />
+      <element id="library" level="project" name="lib" />
+    </root>
+  </artifact>
+</component>
