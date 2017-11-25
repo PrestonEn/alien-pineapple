@@ -1,4 +1,5 @@
 import com.brock.pe12nh.AdjGraph.AdjGraph;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.graphstream.graph.Node;
 
 import java.util.ArrayList;
@@ -16,28 +17,39 @@ public class Individual implements Runnable{
     public Individual(int[] locus, AdjGraph g){
         this.locus = locus;
         this.g = g;
-
+        this.score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
     }
 
     public Individual(AdjGraph g){
         this.g = g;
         this.locus = new int[g.g.getNodeCount()];
         initGenes();
-        System.out.println(this.getMembershipString());
         this.score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+    }
+
+    /**
+     * copy constructor
+     * @param i
+     */
+    public Individual(Individual i){
+        this.locus = i.locus.clone();
+        this.score = i.score;
+        this.g = i.g;
     }
 
     /**
      * Initilization limits selecting links between neighbours
      */
     private void initGenes(){
+
         for (int i=0; i < locus.length; i++){
-                Iterator<Node> niter = g.g.getNode(i).getNeighborNodeIterator();
-                ArrayList<Integer> nIndexes = new ArrayList<>();
-                while (niter.hasNext()) {
-                    nIndexes.add(niter.next().getIndex());
-                }
-                this.locus[i] = nIndexes.get(Main.randgen.nextInt(nIndexes.size()));
+            ArrayList<Integer> neigs = new ArrayList<>();
+            Iterator<Node> niter = this.g.g.getNode(i).getNeighborNodeIterator();
+            while (niter.hasNext()){
+                neigs.add(niter.next().getIndex());
+            }
+
+            this.locus[i] = neigs.size() > 0 ? neigs.get(Main.randgen.nextInt(neigs.size())) : i;
         }
     }
 
@@ -83,44 +95,34 @@ public class Individual implements Runnable{
     }
 
 
-    public void repair() {
-        for (int i = 0; i < locus.length; i++) {
-        if (!g.adjMat[i][this.locus[i]]) {
-                Iterator<Node> niter = g.g.getNode(i).getNeighborNodeIterator();
-                ArrayList<Integer> nghIndex = new ArrayList<>();
-                while (niter.hasNext()) {
-                    nghIndex.add(niter.next().getIndex());
-                }
-                this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
-            }
-        }
-    }
 
     public static Individual crossover(Individual p1, Individual p2){
         int[] c1g = new int[p1.locus.length];
         for (int i = 0; i < p1.locus.length; i++) {
-            boolean maskval = Main.randgen.nextDouble() <= Main.crossoverRate? true : false;
+            boolean maskval = Main.randgen.nextDouble() <= Main.uniformBias? true : false;
             c1g[i] = maskval ? p1.locus[i] : p2.locus[i];
         }
         return new Individual(c1g, p1.g);
     }
 
     public void mutate(){
-        int index = Main.randgen.nextInt(this.locus.length);
-        Iterator<Node> nIter = this.g.g.getNode(index).getNeighborNodeIterator();
-        ArrayList<Integer> nIndexs = new ArrayList<>();
-        while (nIter.hasNext()){
-            nIndexs.add(nIter.next().getIndex());
-        }
+//        for(int i=0; i<this.locus.length; i++) {
+            int i = Main.randgen.nextInt(this.locus.length);
+            Iterator<Node> nIter = this.g.g.getNode(i).getNeighborNodeIterator();
+            ArrayList<Integer> nIndexs = new ArrayList<>();
+            while (nIter.hasNext()) {
+                nIndexs.add(nIter.next().getIndex());
+            }
 
-        if (nIndexs.size() > 1){
-            this.locus[index] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
-        }
-
+            if (nIndexs.size() > 0) {
+                this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
+            }
+//        }
     }
 
     public void run(){
-        score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+        score = Modularity.getModularity(this.g, Individual.decode(this).membership);
+                //CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
     }
 
     public String getMembershipString(){
