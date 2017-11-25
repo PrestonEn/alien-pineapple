@@ -3,9 +3,6 @@ import com.brock.pe12nh.AdjGraph.AdjGraph;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by 326034519 on 2017/08/09.
- */
 public class Solution {
     public int[] membership;
     public HashMap<Integer, ArrayList<Integer>> groups;

@@ -1,15 +1,9 @@
 
 import com.brock.pe12nh.AdjGraph.AdjGraph;
-import com.brock.pe12nh.AdjGraph.Clustering;
 import org.graphstream.graph.Edge;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.stream.IntStream;
 
-/**
- * Created by speng on 6/26/2017.
- */
 public class Modularity {
 
     /**

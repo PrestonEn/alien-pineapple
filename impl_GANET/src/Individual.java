@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-/**
- * Created by speng on 7/31/2017.
- */
 public class Individual implements Runnable{
     public int[] locus;
     public double score = 0d;

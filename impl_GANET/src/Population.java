@@ -7,9 +7,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by speng on 7/31/2017.
- */
 public class Population {
 
     ArrayList<Individual> pop;
@@ -61,7 +58,7 @@ public class Population {
         }
     }
     public void updatePop() throws InterruptedException {
-        this.scorePop(false);
+        this.scorePop(true);
         sortPop();
         ArrayList<Double> weightList = buildRouletteTable();
         ArrayList<Individual> newPop = new ArrayList<>();
@@ -141,7 +138,6 @@ public class Population {
                 return pop.get(i);
             }
         }
-
         return pop.get(pop.size() - 1);
     }
 
