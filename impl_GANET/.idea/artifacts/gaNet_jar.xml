@@ -5,7 +5,6 @@
       <element id="archive" name="gaNet.jar">
         <element id="module-output" name="gaNet" />
       </element>
-      <element id="library" level="project" name="GraphTools" />
       <element id="library" level="project" name="lib" />
     </root>
   </artifact>

@@ -99,7 +99,7 @@ public class Individual implements Runnable{
     public static Individual crossover(Individual p1, Individual p2){
         int[] c1g = new int[p1.locus.length];
         for (int i = 0; i < p1.locus.length; i++) {
-            boolean maskval = Main.randgen.nextDouble() <= Main.uniformBias? true : false;
+            boolean maskval = Main.randgen.nextDouble() <= 0.5 ? true : false;
             c1g[i] = maskval ? p1.locus[i] : p2.locus[i];
         }
         return new Individual(c1g, p1.g);

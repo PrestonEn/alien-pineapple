@@ -72,15 +72,25 @@ public class Population {
             newPop.add(pop.get(pop.size() - (i+1)));
         }
 
-        while (newPop.size() < pop.size()) {
+        // (produce popSize * crossover rate) individuals through crossover
+        for (int i=0; i < (int)(Main.popSize * Main.crossoverRate); i++) {
             Individual p1 = this.roulSelect(weightList);
             Individual p2 = this.roulSelect(weightList);
+
             Individual newc = Individual.crossover(p1, p2);
-            if(Main.randgen.nextDouble() <= Main.mutRate)
+            if (Main.randgen.nextDouble() <= Main.mutRate)
                 newc.mutate();
-            // newc.repair();
             newPop.add(newc);
         }
+
+        //roulette select the rest
+        while (newPop.size() < Main.popSize){
+            Individual i = new Individual(this.roulSelect(weightList));
+            if (Main.randgen.nextDouble() <= Main.mutRate)
+                i.mutate();
+            newPop.add(i);
+        }
+
         this.pop = newPop;
     }
 

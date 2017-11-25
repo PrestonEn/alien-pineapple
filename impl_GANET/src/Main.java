@@ -92,14 +92,14 @@ public class Main {
         elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
         crossoverRate = cmdLine.hasOption('p') ? Double.parseDouble(cmdLine.getOptionValue('p')) : 0.9;
         batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "ganet_testing";
-        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "/Users/preston/Downloads/4f90/gml_files/karate.gml";
+        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "../gml_files/karate.gml";
         outName = cmdLine.hasOption('o') ? cmdLine.getOptionValue('o') : "ganet_testing_" + String.valueOf(seed);
         seed = cmdLine.hasOption('s')?Long.parseLong(cmdLine.getOptionValue('s')):System.nanoTime();
         adjG = new AdjGraph(gmlPath);
 
 
         Class.forName("org.sqlite.JDBC");
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/preston/Downloads/4f90/ClusterResults.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:../ClusterResults.db");
 
         randgen = new Random(seed);
         ArrayList<Double> bestScores = new ArrayList();
