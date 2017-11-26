@@ -106,8 +106,6 @@ public class Individual implements Runnable {
     }
 
     public void cleanUp(double portion, double thold) {
-
-
         int b = (int) (portion * this.membership.length);
         for (int i = 0; i < b; i++) {
             int n = Main.randgen.nextInt(this.membership.length);

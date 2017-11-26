@@ -6,13 +6,8 @@
         <element id="directory" name="META-INF">
           <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
         </element>
-        <element id="module-output" name="TasginGa" />
+        <element id="module-output" name="impl_TasginGA" />
       </element>
-      <element id="library" level="project" name="commons-cli-2.0" />
-      <element id="library" level="project" name="commons-cli-2.01" />
-      <element id="library" level="project" name="lib" />
-      <element id="library" level="project" name="GraphTools" />
-      <element id="library" level="project" name="commons-io-2.5" />
     </root>
   </artifact>
 </component>

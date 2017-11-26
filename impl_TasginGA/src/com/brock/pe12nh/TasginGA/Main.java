@@ -96,7 +96,7 @@ public class Main {
         initRate = cmdLine.hasOption('i') ? Double.parseDouble(cmdLine.getOptionValue('i')) : 0.1;
         elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
         batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "tasgin_test";
-        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "/Users/preston/Downloads/4f90/gml_files/karate.gml";
+        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "../gml_files/real_networks/karate.gml";
         outName = cmdLine.hasOption('o') ? cmdLine.getOptionValue('o') : "tasgin_testing_" + String.valueOf(seed);;
         seed = cmdLine.hasOption('s')?Long.parseLong(cmdLine.getOptionValue('s')):System.nanoTime();
         cleanRate = cmdLine.hasOption('c') ? Double.parseDouble(cmdLine.getOptionValue('c')) : 0.0;
@@ -105,7 +105,7 @@ public class Main {
 
 
         Class.forName("org.sqlite.JDBC");
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/preston/Downloads/4f90/ClusterResults.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:../ClusterResults.db");
 
         randgen = new Random(seed);
         ArrayList<Double> bestScores = new ArrayList();
