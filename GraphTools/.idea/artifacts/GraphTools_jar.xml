@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="GraphTools:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/GraphTools_jar</output-path>
+    <output-path>$PROJECT_DIR$/../jars</output-path>
     <root id="archive" name="GraphTools.jar">
       <element id="module-output" name="GraphTools" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/gs-core-1.3/gs-core-1.3/gs-core-1.3.jar" path-in-jar="/" />

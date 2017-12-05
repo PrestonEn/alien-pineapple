@@ -1,7 +1,19 @@
 package brock.pe12nh;
 
+import com.brock.pe12nh.AdjGraph.AdjGraph;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by speng on 11/25/2017.
  */
 public class Individual {
+    List<Integer> genes;
+    AdjGraph g;
+
+    public Individual(List<Integer> vals, AdjGraph g){
+        genes = vals;
+        this.g = g;
+    }
+
+
 }
