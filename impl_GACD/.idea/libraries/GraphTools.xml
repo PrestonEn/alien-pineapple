@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="GraphTools">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../GraphTools/out/artifacts/GraphTools_jar/GraphTools.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
