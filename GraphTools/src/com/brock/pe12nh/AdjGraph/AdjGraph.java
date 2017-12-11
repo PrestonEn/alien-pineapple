@@ -32,7 +32,6 @@ public class AdjGraph{
             fs.begin(filePath);
 
             while (fs.nextEvents()) {
-                // Optionally some code here ...
             }
         } catch( IOException e) {
             e.printStackTrace();

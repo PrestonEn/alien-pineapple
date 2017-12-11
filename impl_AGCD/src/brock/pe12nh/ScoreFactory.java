@@ -1,6 +1,7 @@
-package com.brock.pe12nh.AdjGraph;
+package brock.pe12nh;
 
 import java.util.List;
+import com.brock.pe12nh.AdjGraph.AdjGraph;
 
 /**
  * Created by preston on 2017-11-27.

@@ -127,6 +127,12 @@ public class Main {
         conn.close();
     }
 
+    /**
+     * update lists of generation average and best fitness
+     * @param score
+     * @param avg
+     * @param p
+     */
     public static void updateGenStats(ArrayList<Double> score, ArrayList<Double> avg, Population p){
         score.add(new Double(p.getBestInd().score));
         avg.add(new Double(p.getPopAvg()));
@@ -146,6 +152,14 @@ public class Main {
         return str;
     }
 
+    /**
+     * dump results to sqlite
+     * @param conn
+     * @param best
+     * @param avg
+     * @param bestInd
+     * @throws SQLException
+     */
     public static void writeRecord(Connection conn, ArrayList<Double> best, ArrayList<Double> avg, Individual bestInd) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("insert into ClusterOutputs values(?,?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, Main.batch);
@@ -158,15 +172,7 @@ public class Main {
         stmt.setString(8, Main.listStrRep(avg));
         stmt.setString(9, Double.toString(bestInd.score));
         stmt.setString(10, "");
-
         stmt.execute();
     }
 
-
-//    public static String buildParamJson(){
-//
-//        JSONObject params = new JSONObject();
-//        params.put("popsize", popSize);
-//
-//    }
 }

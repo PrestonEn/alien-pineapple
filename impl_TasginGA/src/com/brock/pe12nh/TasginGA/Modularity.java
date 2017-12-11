@@ -15,8 +15,7 @@ public class Modularity {
 
     /**
      * Implementation of Newman 2006 modularity.
-     * <p>
-     * Given a graph, and a partitioning of nodes into clusters
+     *
      *
      * @param
      * @param
@@ -46,5 +45,4 @@ public class Modularity {
         }
         return modu;
     }
-
 }

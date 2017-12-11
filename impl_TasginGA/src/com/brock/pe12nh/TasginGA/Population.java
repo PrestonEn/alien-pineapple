@@ -61,9 +61,7 @@ public class Population {
         try {
             Collections.sort(pop, new Comparator<Individual>() {
                 @Override
-
                 public int compare(Individual o1, Individual o2) {
-
                     if (o1.score > o2.score) {
                         return 1;
                     } else if (o1.score < o2.score) {
@@ -75,7 +73,6 @@ public class Population {
         } catch (IllegalArgumentException e) {
             //System.out.print("Contract exception");
         }
-
     }
 
     /**
@@ -84,7 +81,6 @@ public class Population {
     public void updateGen(boolean parallel) {
         //System.out.println();
         scorePop(parallel);        // score the population
-        //System.out.println(this.getPopAvg() + ", " + this.getBestInd().score);
         sortPop();        // sort the population by score, increasing
 
 
