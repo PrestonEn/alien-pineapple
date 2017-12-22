@@ -5,6 +5,8 @@ import java.util.List;
 import com.brock.pe12nh.AdjGraph.AdjGraph;
 import org.apache.commons.cli.ParseException;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * Basic individual of the agglomerative GA. Each one is initialized to be a single node.
  *
@@ -23,7 +25,7 @@ public class Partition {
     public Partition(AdjGraph g, int i){
         List<Integer> l = new ArrayList<>();
         l.add(i);
-        this.membership = i;
+        this.membership = l;
         this.g = g;
     }
 
@@ -48,7 +50,7 @@ public class Partition {
         boolean contA = true;
         boolean contB = true;
 
-        // ugly case
+        // ugly case statement could get cleaned up
         while(contA || contB){
             // both lists are still not traversed
             if(contA && contB && a.membership.get(pA) < b.membership.get(pB)){
