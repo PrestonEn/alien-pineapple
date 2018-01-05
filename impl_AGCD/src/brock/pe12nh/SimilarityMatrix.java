@@ -17,8 +17,10 @@ public class SimilarityMatrix {
                 Set<Integer> vN = new HashSet<>();
                 Set<Integer> wN = new HashSet<>();
 
-                g.g.getNode(i).getNeighborNodeIterator().forEachRemaining(n -> vN.add(Integer.parseInt(n.getId())));
-                g.g.getNode(j).getNeighborNodeIterator().forEachRemaining(n -> wN.add(Integer.parseInt(n.getId())));
+                g.g.getNode(i).getNeighborNodeIterator().forEachRemaining(n ->
+                        vN.add(Integer.parseInt(n.getId())));
+                g.g.getNode(j).getNeighborNodeIterator().forEachRemaining(n ->
+                        wN.add(Integer.parseInt(n.getId())));
 
                 Set<Integer> vNc = new HashSet<>(vN); //neighborhood of v
                 Set<Integer> wNc = new HashSet<>(wN); //neighborhood of w

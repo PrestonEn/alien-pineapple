@@ -10,7 +10,9 @@ public class Main {
         AdjGraph test = new AdjGraph("../gml_files/real_networks/karate.gml");
         Collection<Edge> es = test.g.getEdgeSet();
         ArrayList<Integer> a = new ArrayList<>();
+        a.add(0);
         System.out.println(test.getCutSize(a));
+        System.out.println(test.getPartitionAssoc(a));
 
     }
 }

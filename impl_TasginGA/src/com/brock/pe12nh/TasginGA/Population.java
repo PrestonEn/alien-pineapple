@@ -79,17 +79,15 @@ public class Population {
      * Genetic algorithm main loop call
      */
     public void updateGen(boolean parallel) {
-        //System.out.println();
-        scorePop(parallel);        // score the population
-        sortPop();        // sort the population by score, increasing
-
+        scorePop(parallel); // score the population
+        sortPop(); // sort the population by score, increasing
 
         // create normalized fitness list for roulette
         ArrayList<Double> weightList = buildRouletteTable();
+
         // new population
         ArrayList<Individual> newPop = new ArrayList<>();
         ArrayList<Double> newPopScores = new ArrayList<>(); //debugging
-
         int eCount = (int) ((double) pop.size() * elitePortion);
 
         // add portion of elites to new pop

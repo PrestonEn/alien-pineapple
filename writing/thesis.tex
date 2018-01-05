@@ -1,0 +1,106 @@
+%Thesis Tempate for Computer Science theses, Brock University
+
+\documentclass[12pt,oneside,openany]{book}
+
+\usepackage{setspace}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{verbatim, appendix}
+\usepackage{ulem}
+%feel free to add here
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+
+%including online sources: from wikipidia (cite sources)
+\usepackage{url}
+
+%Algorithms package
+%http://tex.stackexchange.com/questions/163768/write-pseudo-code-in-latex
+\usepackage{amsmath}
+\usepackage{algorithm}
+
+%%LANDSCAPE http://www.latex-community.org/forum/viewtopic.php?f=45&p=59291
+
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\usepackage[top=1.0in, bottom=1.0in, left=1.5in, right=1.0in]{geometry} %set page margins
+
+\onehalfspacing
+
+\begin{document}
+\normalem 
+
+%these are added at the end
+%libary Release Form
+%Examining Committee Sig pages
+
+
+%Title Page
+%\input{quotepage} %  Optional quote page. It goes BEFORE the title page.
+
+\pagenumbering{gobble}
+\input{title}
+
+%these are not to be numbered
+\frontmatter
+\pagestyle{empty}
+
+%comment out what you don't need
+
+%\include{dedication}   % Dedication (optional)
+\include{abstract}
+\include{ack} 
+
+
+%this is the Table of Contents and other lists.
+\thispagestyle{empty}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\tableofcontents
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\listoftables
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\listoffigures
+
+\mainmatter 
+\pagestyle{headings}
+
+\pagenumbering{arabic}
+
+%%%%%%%%%%% MAIN CONTENT %%%%%%%%%%%%
+
+\include{introduction}  
+\include{system}  
+\include{conclusion}     
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%this is the area for the .bib file
+\cleardoublepage
+\clearpage
+\bibliographystyle{plain}
+\bibliography{thesis}
+\addcontentsline{toc}{chapter}{Bibliography} 
+%this adds the Bibliography to the Table of Contents *Note it might 
+% be off my one page...this has to be edited manually in the file 
+% printing by going into the toc file and changing the numbers.  
+% This might be done some other way but I don't know the process...feel 
+% free to edit if you find a fix*
+\cleardoublepage
+\clearpage
+\appendix %this is the appendix
+\addappheadtotoc %add the appendix to the table of contents
+\input{appendA}
+
+\end{document}

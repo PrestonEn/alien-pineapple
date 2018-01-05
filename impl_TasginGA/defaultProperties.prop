@@ -1,0 +1,11 @@
+generations = 30
+mutationRate = 0.1
+initalizationRate = 0.1
+elitePortion = 0.1
+batch = default test
+gmlPath =
+outputName =
+seed =
+cleanRate =
+cleanPortion =
+cleanThold =

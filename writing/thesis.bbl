@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{CateniCollaVannucci:}
+S.~Cateni, V.~Colla, and M.~Vannucci.
+\newblock General purpose input variables extraction: A genetic algorithm based
+  procedure give a gap.
+\newblock In {\em Intelligent Systems Design and Applications, 2009. ISDA '09.
+  Ninth International Conference on}, pages 1278--1283, Nov 2009.
+
+\bibitem{ChiHyuckLeeParkLee:}
+J.~Chi-Hyuck, S.~Lee, H.~Park, and J.~Lee.
+\newblock Use of partial least squares regression for variable selection and
+  quality prediction.
+\newblock In {\em Computers \& Industrial Engineering (CIE 2009)}, 2009.
+
+\bibitem{GoldbergDE:}
+D.E. Goldberg.
+\newblock {\em Genetic Algorithms in Search Optimization and Machine Learning}.
+\newblock Addison Wesley, 1989.
+
+\end{thebibliography}

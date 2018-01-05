@@ -20,6 +20,7 @@ public class Partition {
     public Partition(AdjGraph g, List<Integer> i){
         this.membership = i;
         this.g = g;
+        this.fitness = ScoreFactory.normCut(this.g, this.membership);
     }
 
     public Partition(AdjGraph g, int i){
@@ -27,7 +28,21 @@ public class Partition {
         l.add(i);
         this.membership = l;
         this.g = g;
+        this.fitness = ScoreFactory.normCut(this.g, this.membership);
     }
+
+    public Partition(Partition p){
+        membership = new ArrayList<>();
+
+        for (int i:
+             p.membership) {
+            this.membership.add(i);
+        }
+
+        this.g = p.g;
+        this.fitness = p.fitness;
+    }
+
 
     public void score(){
         this.fitness = ScoreFactory.normCut(g, membership);
@@ -36,7 +51,8 @@ public class Partition {
     /**
      * Variable length bias crossver.
      *
-     * selected individuals will be mapped
+     * selected individuals will be mapped to an equal length, have the crossover applied,
+     * and filtered to the new size
      * @param a
      * @param b
      * @param bias
@@ -82,9 +98,12 @@ public class Partition {
                     contB = false;
                 }
             }
+            a.score();
+            b.score();
         }
 
-        // TODO: bias the crossover
+        // TODO: bias the crossover to favor small partitons
+        // SEE THE PAPER
         for(int i=0; i<aNew.size(); i++){
             double roll = Main.randgen.nextDouble();
             if(roll < 0.5){

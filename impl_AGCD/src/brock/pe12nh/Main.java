@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-/**
- * Created by speng on 12/10/2017.
- */
 public class Main {
 
         public static Random randgen = new Random();
@@ -20,6 +17,9 @@ public class Main {
         try {
             g = new AdjGraph("../gml_files/real_networks/karate.gml");
             symMat = new SimilarityMatrix(g);
+            Population p = new Population(g);
+            p.generationActions();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

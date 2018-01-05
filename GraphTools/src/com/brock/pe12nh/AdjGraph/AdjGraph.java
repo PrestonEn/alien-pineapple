@@ -88,7 +88,6 @@ public class AdjGraph{
      */
     public int getCutSize(List<Integer> partA){
         Set<Integer> V = new HashSet<>(this.nodeIdSet);
-        System.out.println(V.size());
         V.removeAll(partA);
         int sum = 0;
         for (Integer nodeA:
@@ -115,18 +114,21 @@ public class AdjGraph{
         return sum;
     }
 
-    /** Associativity of a partiotion in relation to the vertex set of the graph
+    /** Associativity of a partition in relation to the vertex set of the graph
      *
      * @param partA
      * @return
      */
     public int getPartitionAssoc(List<Integer> partA){
         int sum = 0;
-        for(Integer i: partA){
-            for(int j=0; j<this.adjMat.length; j++){
+        for (int i:
+             partA) {
+            for (int j=0; j < this.adjMat[i].length; j++) {
                 sum += this.adjMat[i][j] ? 1 : 0;
             }
         }
         return sum;
     }
+
+
 }

@@ -11,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 public class Main {
@@ -90,9 +89,9 @@ public class Main {
 
         // parse out options
         CommandLine cmdLine = parser.parse(options, args);
-        popSize = cmdLine.hasOption('p') ? Integer.parseInt(cmdLine.getOptionValue('p')) : 250;
+        popSize = cmdLine.hasOption('p') ? Integer.parseInt(cmdLine.getOptionValue('p')) : 300;
         generations = cmdLine.hasOption('g') ? Integer.parseInt(cmdLine.getOptionValue('g')) : 30;
-        mutRate = cmdLine.hasOption('m') ? Double.parseDouble(cmdLine.getOptionValue('m')) : 0.05;
+        mutRate = cmdLine.hasOption('m') ? Double.parseDouble(cmdLine.getOptionValue('m')) : 0.1;
         initRate = cmdLine.hasOption('i') ? Double.parseDouble(cmdLine.getOptionValue('i')) : 0.1;
         elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
         batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "tasgin_test";
@@ -115,14 +114,16 @@ public class Main {
         Population p = new Population(popSize, a, elitePortion, initRate);
 
         for (int i = 0; i < generations; i++) {
-            if(i%10 == 0)
-                System.out.println(p.getPopAvg()+ "\t" + p.getBestInd().score);
+            //if(i%10 == 0)
+                System.out.println(p.getPopAvg());
             p.updateGen(true);
             updateGenStats(bestScores, avgScores, p);
         }
         Individual ind = p.getBestInd();
         System.out.println(ind.getMembershipString());
         System.out.println(p.getBestInd().score);
+        System.out.println(Main.listStrRep(avgScores));
+        System.out.println(Main.listStrRep(bestScores));
         Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
         conn.close();
     }
@@ -147,7 +148,7 @@ public class Main {
         for(int i=0; i < list.size(); i++){
             str += list.get(i);
             if (i != list.size()-1)
-                str += ",";
+                str += '\n';
         }
         return str;
     }

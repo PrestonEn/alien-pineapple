@@ -1,7 +1,6 @@
 package com.brock.pe12nh.TasginGA;
 
 import com.brock.pe12nh.AdjGraph.AdjGraph;
-import com.brock.pe12nh.AdjGraph.Clustering;
 import org.graphstream.graph.Edge;
 
 import java.util.HashMap;

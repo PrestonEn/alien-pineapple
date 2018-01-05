@@ -1,9 +1,7 @@
 package com.brock.pe12nh.TasginGA;
-import java.awt.*;
 import java.util.*;
 
 import com.brock.pe12nh.AdjGraph.AdjGraph;
-import com.brock.pe12nh.AdjGraph.Clustering;
 import org.graphstream.graph.Node;
 
 public class Individual implements Runnable {
@@ -41,6 +39,7 @@ public class Individual implements Runnable {
             membership[i] = Main.randgen.nextInt(n - 1);
         }
 
+        // after assigning ids,  propagate the id of some nodes to their neighbours
         int selectcount = (int)(bias * (double)n);
         for (int i = 0; i < selectcount; i++) {
             int j = Main.randgen.nextInt(n);
@@ -105,6 +104,13 @@ public class Individual implements Runnable {
         }
     }
 
+    /**
+     * community cleaning procedure based on the idea of community variance
+     *
+     *
+     * @param portion
+     * @param thold
+     */
     public void cleanUp(double portion, double thold) {
         int b = (int) (portion * this.membership.length);
         for (int i = 0; i < b; i++) {
@@ -115,6 +121,8 @@ public class Individual implements Runnable {
             ArrayList<Integer> nClusts = new ArrayList<>();
             ArrayList<Integer> nInx = new ArrayList<>();
 
+            // for each neighbour, if not in the same community as n,
+            // nonCom++
             while (niter.hasNext()) {
                 Node nn = niter.next();
                 nClusts.add(this.membership[nn.getIndex()]);
