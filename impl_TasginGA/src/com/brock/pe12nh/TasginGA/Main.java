@@ -5,6 +5,7 @@ import com.sun.org.apache.xpath.internal.operations.Number;
 import org.apache.commons.cli.*;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,9 +16,9 @@ import java.util.Random;
 
 public class Main {
 
-    /* TODO Individual cleanup method
-     * TODO argparse
-     * TODO sqlLite
+    /*
+     *
+     *
      */
     private static Options options;
     public static Random randgen;
@@ -30,7 +31,7 @@ public class Main {
     public static double cleanThold;
     public static double cleanPortion;
     public static String batch;
-    public static String gmlPath;
+    public static String gmlPath = "../benchmark_gen/gml_files/real_networks/karate.gml";
     public static String outName;
     public static long seed;
 
@@ -39,93 +40,73 @@ public class Main {
         // Set up session variables and sql connection
         CommandLineParser parser = new DefaultParser();
         options = new Options();
-
-        // create the Options
-        Option generationsOpt = Option.builder("g").hasArg(true).longOpt("gens").required(false)
-                .desc("generations to run").type(Number.class).build();
-
-        Option popSizeOpt = Option.builder("p").hasArg().longOpt("popsize").required(false)
-                .desc("population size").type(Integer.class).build();
-
-        Option elitismPortionOpt = Option.builder("e").hasArg().longOpt("elite").required(false)
-                .desc("portion to keep of best individuals").type(Double.class).build();
-
-        Option mutateOpt = Option.builder("m").hasArg().longOpt("mut").required(false)
-                .desc("mutation rate").type(Double.class).build();
-
-        Option initBiasOpt = Option.builder("i").hasArg().longOpt("initbias").required(false)
-                .desc("initialization bias").type(Double.class).build();
-
-        Option graphPathOpt = Option.builder("G").hasArg().longOpt("graph").required(false)
+        Option graphPathOpt = Option.builder("g").hasArg().longOpt("graph").required(false)
                 .desc("path to gml file").type(String.class).build();
 
-        Option batchOpt = Option.builder("b").hasArg().longOpt("batch").required(false)
-                .desc("experiment set").type(String.class).build();
+        Option propFileOpt = Option.builder("P").hasArg().longOpt("prop").required(false)
+                .desc("path properties file").type(String.class).build();
 
-        Option outnameOpt = Option.builder("o").hasArg().longOpt("outputName").required(false)
-                .desc("name for output files").type(String.class).build();
-
-        Option seedOpt = Option.builder("s").hasArg().longOpt("seed").required(false)
-                .desc("seed").type(Long.class).build();
-
-        Option cleanUpRateOpt = Option.builder("c").hasArg().longOpt("cleanRate").required(false)
-                .desc("cleanup rate").type(Double.class).build();
-
-        Option cleanUpTholdOpt = Option.builder("P").hasArg().longOpt("cleanThold").required(false)
-                .desc("cleanup threshold").type(Double.class).build();
-
-        Option cleanUpPortionOpt = Option.builder("t").hasArg().longOpt("cleanPort").required(false)
-                .desc("cleanup portion").type(Double.class).build();
-
-
-        options.addOption(generationsOpt);
-        options.addOption(popSizeOpt);
-        options.addOption(mutateOpt);
-        options.addOption(elitismPortionOpt);
-        options.addOption(initBiasOpt);
         options.addOption(graphPathOpt);
-        options.addOption(batchOpt);
-        options.addOption(outnameOpt);
+        options.addOption(propFileOpt);
 
         // parse out options
         CommandLine cmdLine = parser.parse(options, args);
-        popSize = cmdLine.hasOption('p') ? Integer.parseInt(cmdLine.getOptionValue('p')) : 300;
-        generations = cmdLine.hasOption('g') ? Integer.parseInt(cmdLine.getOptionValue('g')) : 30;
-        mutRate = cmdLine.hasOption('m') ? Double.parseDouble(cmdLine.getOptionValue('m')) : 0.1;
-        initRate = cmdLine.hasOption('i') ? Double.parseDouble(cmdLine.getOptionValue('i')) : 0.1;
-        elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
-        batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "tasgin_test";
-        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "../gml_files/real_networks/karate.gml";
-        outName = cmdLine.hasOption('o') ? cmdLine.getOptionValue('o') : "tasgin_testing_" + String.valueOf(seed);;
-        seed = cmdLine.hasOption('s')?Long.parseLong(cmdLine.getOptionValue('s')):System.nanoTime();
-        cleanRate = cmdLine.hasOption('c') ? Double.parseDouble(cmdLine.getOptionValue('c')) : 0.0;
-        cleanPortion = cmdLine.hasOption('P') ? Double.parseDouble(cmdLine.getOptionValue('P')) : 0.1;
-        cleanThold = cmdLine.hasOption('t') ? Double.parseDouble(cmdLine.getOptionValue('t')) : 0.8;
 
-
-        Class.forName("org.sqlite.JDBC");
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:../ClusterResults.db");
-
-        randgen = new Random(seed);
-        ArrayList<Double> bestScores = new ArrayList();
-        ArrayList<Double> avgScores = new ArrayList();
+        if (cmdLine.hasOption('g'))
+            gmlPath = cmdLine.getOptionValue('g');
 
         AdjGraph a = new AdjGraph(gmlPath);
-        Population p = new Population(popSize, a, elitePortion, initRate);
 
-        for (int i = 0; i < generations; i++) {
-            //if(i%10 == 0)
-                System.out.println(p.getPopAvg());
-            p.updateGen(true);
-            updateGenStats(bestScores, avgScores, p);
-        }
-        Individual ind = p.getBestInd();
-        System.out.println(ind.getMembershipString());
-        System.out.println(p.getBestInd().score);
-        System.out.println(Main.listStrRep(avgScores));
-        System.out.println(Main.listStrRep(bestScores));
-        Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
-        conn.close();
+
+        System.out.println(cmdLine.hasOption('g'));
+        System.out.println(cmdLine.getOptionValue('g'));
+
+//        popsize = 300
+//        generations = 30
+//        mutationRate = 0.1
+//        crossoverRate = 0.8
+//        initRate = 0.1
+//        elitePortion = 0.1
+//        cleanRate =
+//        cleanPortion =
+//        cleanThold =
+
+//        popSize = cmdLine.hasOption('p') ? Integer.parseInt(cmdLine.getOptionValue('p')) : 300;
+//        generations = cmdLine.hasOption('g') ? Integer.parseInt(cmdLine.getOptionValue('g')) : 30;
+//        mutRate = cmdLine.hasOption('m') ? Double.parseDouble(cmdLine.getOptionValue('m')) : 0.1;
+//        initRate = cmdLine.hasOption('i') ? Double.parseDouble(cmdLine.getOptionValue('i')) : 0.1;
+//        elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
+//        batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "tasgin_test";
+//        outName = cmdLine.hasOption('o') ? cmdLine.getOptionValue('o') : "tasgin_testing_" + String.valueOf(seed);;
+//        seed = cmdLine.hasOption('s')?Long.parseLong(cmdLine.getOptionValue('s')):System.nanoTime();
+//        cleanRate = cmdLine.hasOption('c') ? Double.parseDouble(cmdLine.getOptionValue('c')) : 0.0;
+//        cleanPortion = cmdLine.hasOption('P') ? Double.parseDouble(cmdLine.getOptionValue('P')) : 0.1;
+//        cleanThold = cmdLine.hasOption('t') ? Double.parseDouble(cmdLine.getOptionValue('t')) : 0.8;
+//
+//
+//        Class.forName("org.sqlite.JDBC");
+//        Connection conn = DriverManager.getConnection("jdbc:sqlite:../ClusterResults.db");
+//
+//        randgen = new Random(seed);
+//        ArrayList<Double> bestScores = new ArrayList();
+//        ArrayList<Double> avgScores = new ArrayList();
+//
+        AdjGraph a = new AdjGraph(gmlPath);
+//        Population p = new Population(popSize, a, elitePortion, initRate);
+//
+//        for (int i = 0; i < generations; i++) {
+//            //if(i%10 == 0)
+//                System.out.println(p.getPopAvg());
+//            p.updateGen(true);
+//            updateGenStats(bestScores, avgScores, p);
+//        }
+//        Individual ind = p.getBestInd();
+//        System.out.println(ind.getMembershipString());
+//        System.out.println(p.getBestInd().score);
+//        System.out.println(Main.listStrRep(avgScores));
+//        System.out.println(Main.listStrRep(bestScores));
+//        Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
+//        conn.close();
     }
 
     /**

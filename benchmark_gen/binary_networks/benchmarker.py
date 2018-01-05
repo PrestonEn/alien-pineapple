@@ -23,8 +23,8 @@ for line in file:
 		    print "calling"
 		    print params[3] + " trying to call"
 		    subprocess.call(params[3], shell = True)
-		    g = Graph.Read_Edgelist("network.dat", directed = False)
-		    # # write to gml
-		    g.write_gml(filename)
-		    # move communities.dat to filename.coms
-		    os.rename("community.dat", filename + ".coms")
+		    # g = Graph.Read_Edgelist("network.dat", directed = False)
+		    # # # write to gml
+		    # g.write_gml(filename)
+		    # # move communities.dat to filename.coms
+		    # os.rename("community.dat", filename + ".coms")

@@ -90,7 +90,7 @@ public class Main {
         elitePortion = cmdLine.hasOption('e') ? Double.parseDouble(cmdLine.getOptionValue('e')) : 0.1;
         crossoverRate = cmdLine.hasOption('p') ? Double.parseDouble(cmdLine.getOptionValue('p')) : 0.9;
         batch = cmdLine.hasOption('b') ? cmdLine.getOptionValue('b') : "ganet_testing";
-        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "../gml_files/real_networks/karate.gml";
+        gmlPath = cmdLine.hasOption('G') ? cmdLine.getOptionValue('G') : "../benchmark_gen/gml_files/real_networks/karate.gml";
         outName = cmdLine.hasOption('o') ? cmdLine.getOptionValue('o') : "ganet_testing_" + String.valueOf(seed);
         seed = cmdLine.hasOption('s')?Long.parseLong(cmdLine.getOptionValue('s')):System.nanoTime();
         adjG = new AdjGraph(gmlPath);
@@ -114,6 +114,7 @@ public class Main {
         Individual i = p.pop.get(0);
         Solution s = Individual.decode(i);
         System.out.println(i.getMembershipString());
+        System.out.println(p.getMax().score);
     }
 
 

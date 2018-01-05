@@ -17,37 +17,5 @@
 ../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu5, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
 ../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu6, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
 ../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu7, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-#lfr 10000
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu1, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.1 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu2, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.2 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu3, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.3 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu4, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.4 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu5, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu6, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu7, 30, ./benchmark.exe -N 10000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-# lfr 50000
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu1, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.1 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu2, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.2 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu3, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.3 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu4, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.4 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu5, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu6, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu7, 30, ./benchmark.exe -N 50000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-#lfr 100000
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu1, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.1 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu2, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.2 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu3, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.3 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu4, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.4 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu5, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu6, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n100000/, lfr_100000_mu7, 10, ./benchmark.exe -N 100000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-# lfr 500000
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu1, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.1 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu2, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.2 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu3, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.3 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu4, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.4 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu5, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.5 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu6, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.6 -minc 200 -maxc 500
-../gml_files/benchmarks/lfr/n500000/, lfr_500000_mu7, 10, ./benchmark.exe -N 500000 -k 15 -maxk 500 -mu 0.7 -minc 200 -maxc 500
-# random networks
+
 ../gml_files/benchmarks/rand/, rand_1000, 10, ./benchmark.exe -N 1000 -k 15 -maxk 50 -minc 20 -maxc 50

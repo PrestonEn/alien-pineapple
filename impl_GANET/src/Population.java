@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Population {
-
     ArrayList<Individual> pop;
     AdjGraph g;
     public Population(int p, AdjGraph g){
@@ -20,25 +19,12 @@ public class Population {
     }
 
     public void sortPop(){
-        try {
-            Collections.sort(pop, new Comparator<Individual>() {
-                @Override
-
-                public int compare(Individual o1, Individual o2) {
-
-                    if (o1.score > o2.score) {
-                        return 1;
-                    } else if (o1.score < o2.score) {
-                        return -1;
-                    }
-                    return 0;
-                }
-            });
-        } catch (IllegalArgumentException e) {
-            //System.out.print("Contract exception");
-        }
+            Collections.sort(pop, new IndividualComparator());
     }
 
+    public Individual getMax(){
+        return Collections.max(pop, new IndividualComparator());
+    }
 
     public void scorePop(boolean parallel) throws InterruptedException {
         if (parallel) {
@@ -113,6 +99,8 @@ public class Population {
         }
         return total / (double) pop.size();
     }
+
+
 
     private ArrayList<Double> buildRouletteTable() {
         double totalFit = this.getPopTotal();
