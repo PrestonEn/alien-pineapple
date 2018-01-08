@@ -45,7 +45,11 @@ public class Partition {
 
 
     public void score(){
-        this.fitness = ScoreFactory.normCut(g, membership);
+        if(this.membership.size() != 0) {
+            this.fitness = ScoreFactory.normCut(g, membership);
+        }else{
+            this.fitness = 0;
+        }
     }
 
     /**
@@ -60,7 +64,6 @@ public class Partition {
     public static void crossover(Partition a, Partition b, double bias){
         int pA = 0;
         int pB = 0;
-        int fixedSize = a.membership.size() + b.membership.size();
         ArrayList<Integer> aNew = new ArrayList<>();
         ArrayList<Integer> bNew = new ArrayList<>();
         boolean contA = true;
@@ -98,26 +101,51 @@ public class Partition {
                     contB = false;
                 }
             }
-            a.score();
-            b.score();
+
         }
 
         // TODO: bias the crossover to favor small partitons
         // SEE THE PAPER
+        System.out.format("a size: %d a bias: %f\tb size: %d b bias:%f\n",
+                a.membership.size(), Partition.calcBias(a, b, bias),
+                b.membership.size(), Partition.calcBias(b, a, bias));
+
         for(int i=0; i<aNew.size(); i++){
-            double roll = Main.randgen.nextDouble();
-            if(roll < 0.5){
-                int tmp = aNew.get(i);
-                aNew.set(i, bNew.get(i));
-                bNew.set(i, tmp);
+            if(aNew.get(i) == -1){
+                if(Main.randgen.nextDouble() < Partition.calcBias(a, b, bias)) {
+                    aNew.set(i, bNew.get(i));
+                    bNew.set(i, -1);
+                }
+            }else{
+                if(Main.randgen.nextDouble() < Partition.calcBias(b, a, bias)) {
+                    bNew.set(i, aNew.get(i));
+                    aNew.set(i, -1);
+                }
             }
         }
 
         // filter
         a.membership = new ArrayList<Integer>(aNew.stream().filter(i -> i != -1).collect(Collectors.toList()));
         b.membership = new ArrayList<Integer>(bNew.stream().filter(i -> i != -1).collect(Collectors.toList()));
+        a.score();
+        b.score();
+        return;
     }
 
+    private static double calcBias(Partition p1, Partition p2, Double puni){
+        double sizeR = (double)p1.membership.size()/((double)p1.membership.size() + (double)p2.membership.size());
+        double mulTerm = (1 - (2 * puni));
+        return  puni + mulTerm * sizeR;
+    }
+
+
+    public void printMembership(){
+        for (int i:
+             this.membership) {
+            System.out.print(" " + (i+1));
+        }
+        System.out.print('\n');
+    }
 
 
 

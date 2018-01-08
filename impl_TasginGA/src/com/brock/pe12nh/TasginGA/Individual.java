@@ -1,4 +1,5 @@
 package com.brock.pe12nh.TasginGA;
+
 import java.util.*;
 
 import com.brock.pe12nh.AdjGraph.AdjGraph;
@@ -10,13 +11,13 @@ public class Individual implements Runnable {
     public double score;
     AdjGraph g;
 
-    public Individual(AdjGraph g, double initBias){
+    public Individual(AdjGraph g, double initBias) {
         this.g = g;
         membership = new int[g.g.getNodeCount()];
         initGenes(initBias);
     }
 
-    public Individual(AdjGraph g,int[] mem){
+    public Individual(AdjGraph g, int[] mem) {
         this.g = g;
         membership = mem;
         this.score = Modularity.getModularity(g, this.membership);
@@ -25,14 +26,13 @@ public class Individual implements Runnable {
     /**
      * <p>Initialization of individuals is done by randomly by assigning each node a random cluster, bounded to
      * the number of nodes.</p>
-     *
+     * <p>
      * <p>a random subset of nodes, making up the fraction defined by bias,
      * assigns their cluster id to all of their neighbours</p>
      *
-     * @param
-     * bias: fraction of nodes to propagate cluster label to neighbours
+     * @param bias: fraction of nodes to propagate cluster label to neighbours
      */
-    private void initGenes(double bias){
+    private void initGenes(double bias) {
         int n = g.g.getNodeCount();
         // keep clusters bounded to number of nodes
         for (int i = 0; i < n; i++) {
@@ -40,11 +40,11 @@ public class Individual implements Runnable {
         }
 
         // after assigning ids,  propagate the id of some nodes to their neighbours
-        int selectcount = (int)(bias * (double)n);
+        int selectcount = (int) (bias * (double) n);
         for (int i = 0; i < selectcount; i++) {
             int j = Main.randgen.nextInt(n);
             Iterator<Node> niter = g.g.getNode(j).getNeighborNodeIterator();
-            while (niter.hasNext()){
+            while (niter.hasNext()) {
                 membership[niter.next().getIndex()] = membership[j];
             }
         }
@@ -54,25 +54,25 @@ public class Individual implements Runnable {
     /**
      * From c1, select a random node, and its membership.
      * Assign that membership to all corresponding nodes in c2
-     *
+     * <p>
      * Eg: We select node 0 in c1
-     *  c1 -> [1, 2, 3, 1, 1]
-     *  c2 -> [4, 3, 5, 6, 7]
-     *  ---------------------
-     *  c3 -> [1, 3, 5, 1, 1]
+     * c1 -> [1, 2, 3, 1, 1]
+     * c2 -> [4, 3, 5, 6, 7]
+     * ---------------------
+     * c3 -> [1, 3, 5, 1, 1]
      *
      * @param c1
      * @param c2
      * @return
      */
-    public static Individual oneWayCross(Individual c1, Individual c2){
+    public static Individual oneWayCross(Individual c1, Individual c2) {
         // select a gene from c1
         int clust = c1.membership[Main.randgen.nextInt(c1.membership.length)];
         int[] newgenes = new int[c1.membership.length];
-        for(int i=0; i<c1.membership.length; i++){
-            if(c1.membership[i] == clust){
+        for (int i = 0; i < c1.membership.length; i++) {
+            if (c1.membership[i] == clust) {
                 newgenes[i] = c1.membership[i];
-            }else{
+            } else {
                 newgenes[i] = c2.membership[i];
 
             }
@@ -84,29 +84,28 @@ public class Individual implements Runnable {
     /**
      * set a random gene to a random cluster
      */
-    public void mutate(){
+    public void mutate() {
         HashSet<Integer> clusts = new HashSet<>();
 
-        for(Integer i : this.membership){
+        for (Integer i : this.membership) {
             clusts.add(i);
         }
 
         int item = Main.randgen.nextInt(clusts.size());
         int index = Main.randgen.nextInt(this.membership.length);
         int i = 0;
-        for (Integer it:
-             clusts) {
-             if (i == item){
-                 this.membership[index] = it;
-                 return;
-             }
-             i++;
+        for (Integer it :
+                clusts) {
+            if (i == item) {
+                this.membership[index] = it;
+                return;
+            }
+            i++;
         }
     }
 
     /**
-     * community cleaning procedure based on the idea of community variance
-     *
+     * community cleaning procedure based on community variance
      *
      * @param portion
      * @param thold
@@ -135,27 +134,27 @@ public class Individual implements Runnable {
             if (nonCom > thold) {
                 int x = getMode(nClusts);
                 this.membership[n] = x;
-                for(Integer in: nInx){
+                for (Integer in : nInx) {
                     this.membership[in] = x;
                 }
             }
         }
     }
 
-    private Integer getMode(ArrayList<Integer> a){
+    private Integer getMode(ArrayList<Integer> a) {
         HashMap<Integer, Integer> count = new HashMap<>();
-        for (Integer ai:
-             a) {
-            if(!count.containsKey(ai)){
-                count.put(ai,1);
-            }else{
+        for (Integer ai :
+                a) {
+            if (!count.containsKey(ai)) {
+                count.put(ai, 1);
+            } else {
                 count.put(ai, count.get(ai) + 1);
             }
         }
         int i = 0;
         int v = 0;
-        for(Integer key : count.keySet()){
-            if(count.get(key) > i){
+        for (Integer key : count.keySet()) {
+            if (count.get(key) > i) {
                 i = count.get(key);
                 v = key;
             }
@@ -163,30 +162,26 @@ public class Individual implements Runnable {
         return v;
     }
 
-    public double getScore(){
-        return this.score;
-    }
-
     @Override
     public void run() {
         score = Modularity.getModularity(this.g, membership);
     }
 
-    public void printMembership(){
+    public void printMembership() {
         for (int i = 0; i < membership.length; i++) {
-            System.out.print(membership[i]+",");
+            System.out.print(membership[i] + ",");
         }
         System.out.println();
     }
 
-    public String getMembershipString(){
+    public String getMembershipString() {
         int[] lowest = new int[this.membership.length];
         HashMap<Integer, Integer> mapping = new HashMap<>();
         int count = 0;
-        for (int i=0; i < this.membership.length; i++){
-            if(mapping.containsKey(this.membership[i])){
+        for (int i = 0; i < this.membership.length; i++) {
+            if (mapping.containsKey(this.membership[i])) {
                 lowest[i] = mapping.get(this.membership[i]);
-            }else {
+            } else {
                 mapping.put(this.membership[i], count);
                 lowest[i] = count;
                 count++;
@@ -196,7 +191,7 @@ public class Individual implements Runnable {
         String str = "";
         for (int i = 0; i < lowest.length; i++) {
             str += Integer.toString(lowest[i]);
-            if (i != lowest.length-1)
+            if (i != lowest.length - 1)
                 str += ",";
 
         }

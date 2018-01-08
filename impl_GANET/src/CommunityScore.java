@@ -19,7 +19,7 @@ public class CommunityScore {
             for (int i = 0; i < sg.length; i++) {
                 int numOnes = IntStream.of(sg[i]).sum();
                 sumOnes += numOnes;
-                meanSum += Math.pow((numOnes/(double)sg.length),r);
+                meanSum += Math.pow(((double)numOnes/(double)sg.length),r);
             }
             double powerMean = meanSum/sg.length;
             comscore += powerMean * sumOnes;

@@ -103,23 +103,21 @@ public class Individual implements Runnable{
     }
 
     public void mutate(){
-//        for(int i=0; i<this.locus.length; i++) {
-            int i = Main.randgen.nextInt(this.locus.length);
-            Iterator<Node> nIter = this.g.g.getNode(i).getNeighborNodeIterator();
-            ArrayList<Integer> nIndexs = new ArrayList<>();
-            while (nIter.hasNext()) {
-                nIndexs.add(nIter.next().getIndex());
-            }
+        int i = Main.randgen.nextInt(this.locus.length);
+        Iterator<Node> nIter = this.g.g.getNode(i).getNeighborNodeIterator();
+        ArrayList<Integer> nIndexs = new ArrayList<>();
+        while (nIter.hasNext()) {
+            nIndexs.add(nIter.next().getIndex());
+        }
 
-            if (nIndexs.size() > 0) {
-                this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
-            }
-//        }
+        if (nIndexs.size() > 0) {
+            this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
+        }
     }
 
     public void run(){
-        score = Modularity.getModularity(this.g, Individual.decode(this).membership);
-                //CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+        score =
+                CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
     }
 
     public String getMembershipString(){
@@ -141,7 +139,7 @@ public class Individual implements Runnable{
         for (int i = 0; i < m.length; i++) {
             str += Integer.toString(m[i]+1);
             if (i != m.length-1)
-                str += ",";
+                str += "\n";
         }
         return str;
     }

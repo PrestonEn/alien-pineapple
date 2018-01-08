@@ -15,4 +15,8 @@ hs_err_pid*
 # papers
 *.pdf
 
+*.gml*
+*.com*
+*.db
+
 ecj/*

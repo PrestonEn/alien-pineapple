@@ -10,13 +10,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.Random;
 
-/**
- * Created by speng on 7/4/2017.
- */
 public class Population {
+    public boolean badCompare;
     ArrayList<Individual> pop;
     double elitePortion;
-    public boolean badCompare;
 
     /**
      * @param size    populaiton size
@@ -59,17 +56,7 @@ public class Population {
      */
     public void sortPop() {
         try {
-            Collections.sort(pop, new Comparator<Individual>() {
-                @Override
-                public int compare(Individual o1, Individual o2) {
-                    if (o1.score > o2.score) {
-                        return 1;
-                    } else if (o1.score < o2.score) {
-                        return -1;
-                    }
-                    return 0;
-                }
-            });
+            Collections.sort(pop, new IndividualComparator());
         } catch (IllegalArgumentException e) {
             //System.out.print("Contract exception");
         }
@@ -92,8 +79,8 @@ public class Population {
 
         // add portion of elites to new pop
         for (int i = 0; i < eCount; i++) {
-            newPop.add(pop.get(pop.size() - (i+1)));
-            newPopScores.add(pop.get(pop.size() - (i+1)).score);
+            newPop.add(pop.get(pop.size() - (i + 1)));
+            newPopScores.add(pop.get(pop.size() - (i + 1)).score);
         }
 
         // child selection
@@ -106,7 +93,7 @@ public class Population {
                 newc.mutate();
             }
 
-            if (Main.randgen.nextDouble() <= Main.cleanRate){
+            if (Main.randgen.nextDouble() <= Main.cleanRate) {
                 newc.cleanUp(Main.cleanPortion, Main.cleanThold);
             }
             newPop.add(newc);
@@ -144,9 +131,7 @@ public class Population {
      * @return
      */
     public Individual getBestInd() {
-        Collections.sort(pop, (Individual p1, Individual p2) ->
-                Double.compare(p1.score, p2.score));
-        return pop.get(pop.size() - 1);
+        return Collections.max(pop, new IndividualComparator());
     }
 
     private ArrayList<Double> buildRouletteTable() {

@@ -609,7 +609,7 @@ bool excess, bool defect,  deque<int> & degree_seq, deque<int> &num_seq, deque<i
 		
 			kr++;
 			try_this = irand(available_nodes.size()-1);
-			if(kr==3*num_nodes) {
+			if(kr==3000*num_nodes) {
 			
 				if(change_community_size(num_seq)==-1) {
 					
@@ -1603,7 +1603,7 @@ int print_network(deque<set<int> > & E, const deque<deque<int> > & member_list, 
 		set<int>::iterator itb=E[u].begin();
 	
 		while (itb!=E[u].end())
-			out1<<u+1<<"\t"<<*(itb++)+1<<endl;
+			out1<<u<<"\t"<<*(itb++)<<endl;
 		
 		
 

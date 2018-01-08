@@ -15,7 +15,6 @@ public class Modularity {
     /**
      * Implementation of Newman 2006 modularity.
      *
-     *
      * @param
      * @param
      * @return

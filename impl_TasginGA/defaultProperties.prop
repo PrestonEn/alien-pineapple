@@ -1,10 +1,8 @@
-popsize = 300
+popSize = 300
 generations = 30
-mutationRate = 0.1
-crossoverRate = 0.8
-initRate = 0.1
+mutRate = 0.1
+initRate = 0.3
 elitePortion = 0.1
-batch = default test
-cleanRate =
-cleanPortion =
-cleanThold =
+cleanRate = 0.5
+cleanThold = 0.7
+cleanPortion = 0.5

@@ -93,7 +93,7 @@ public class Individual implements Runnable{
     }
 
     public static Individual crossover(Individual p1, Individual p2){
-        //TODO
+
     }
 
     public void mutate(){

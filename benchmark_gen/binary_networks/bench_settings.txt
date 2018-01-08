@@ -1,21 +1,60 @@
 #file_out_path, base_name, number of instances, benchmark command
-#gn
-../gml_files/benchmarks/gn/, girvan, 15, ./benchmark.exe -N 128 -k 16 -maxk 16 -mu 0.1 -minc 32 -maxc 32
-#lfr 1000
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu1, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.1 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu2, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.2 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu3, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.3 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu4, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.4 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu5, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu6, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu7, 30, ./benchmark.exe -N 1000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-# lfr 5000
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu1, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.1 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu2, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.2 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu3, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.3 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu4, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.4 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu5, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.5 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu6, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.6 -minc 20 -maxc 50
-../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu7, 30, ./benchmark.exe -N 5000 -k 15 -maxk 50 -mu 0.7 -minc 20 -maxc 50
-
-../gml_files/benchmarks/rand/, rand_1000, 10, ./benchmark.exe -N 1000 -k 15 -maxk 50 -minc 20 -maxc 50
+##gn
+#../gml_files/benchmarks/gn/, girvan, 10, benchmark.exe -N 128 -k 16 -maxk 16 -mu 0.1 -minc 32 -maxc 32
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu3_s_size, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_2000_mu3_s_size, 10, benchmark.exe -N 2000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_3000_mu3_s_size, 10, benchmark.exe -N 3000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_4000_mu3_s_size, 10, benchmark.exe -N 4000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_5000_mu3_s_size, 10, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_6000_mu3_s_size, 10, benchmark.exe -N 6000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_7000_mu3_s_size, 10, benchmark.exe -N 7000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_8000_mu3_s_size, 10, benchmark.exe -N 8000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_9000_mu3_s_size, 10, benchmark.exe -N 9000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+##lfr S 1000_s
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu1_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.1 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu2_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.2 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu3_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu4_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.4 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu5_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.5 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu6_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.6 -minc 10 -maxc 50
+#../gml_files/benchmarks/lfr/n1000/, lfr_1000_mu7_s, 10, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.7 -minc 10 -maxc 50
+## lfr S 5000_1
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu1_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.1 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu2_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.2 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu3_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.3 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu4_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.4 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu5_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.5 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu6_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.6 -minc 10 -maxc 50
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu7_s, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.7 -minc 10 -maxc 50
+# lfr S 5000_1
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu1_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.1 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu2_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.2 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu3_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.3 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu4_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.4 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu5_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.5 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu6_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.6 -minc 20 -maxc 100
+../gml_files/benchmarks/lfr/n5000/, lfr_5000_mu7_b, 5, benchmark.exe -N 5000 -k 20 -maxk 50 -mu 0.7 -minc 20 -maxc 100
+#lfr S 1000_1
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu1_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.1 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu2_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.2 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu3_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.3 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu4_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.4 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu5_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.5 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu6_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.6 -minc 20 -maxc 100
+#../gml_files/benchmarks/lfr/n1000b/, lfr_1000_mu7_b, 5, benchmark.exe -N 1000 -k 20 -maxk 50 -mu 0.7 -minc 20 -maxc 100
+## lfr 10000
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu1_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.1 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu2_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.2 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu3_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.3 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu4_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.4 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu5_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.5 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu6_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.6 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n10000/, lfr_10000_mu7_b, 10, benchmark.exe -N 10000 -k 30 -maxk 500 -mu 0.7 -minc 20 -maxc 500
+#lfr 50000
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu1_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.1 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu2_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.2 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu3_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.3 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu4_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.4 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu5_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.5 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu6_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.6 -minc 20 -maxc 500
+#../gml_files/benchmarks/lfr/n50000/, lfr_50000_mu7_b, 10, benchmark.exe -N 50000 -k 30 -maxk 500 -mu 0.7 -minc 20 -maxc 500$

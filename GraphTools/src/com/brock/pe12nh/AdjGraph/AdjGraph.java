@@ -27,7 +27,6 @@ public class AdjGraph{
         FileSource fs = FileSourceFactory.sourceFor(filePath);
 
         fs.addSink(g);
-
         try {
             fs.begin(filePath);
 
@@ -47,9 +46,13 @@ public class AdjGraph{
 
         System.out.println(g.getNodeCount());
         edgeSet = g.getEdgeSet();
+
         nodeIdSet = this.buildNodeIdSet();
+        System.out.println("building adj mat");
         genAdjMat();
+        System.out.println("building degree set");
         genDegree();
+        System.out.println("getting graph associativity");
         this.vvAssoc = this.getVVAssoc();
 
     }
@@ -60,9 +63,13 @@ public class AdjGraph{
     private void genAdjMat(){
         int n = g.getNodeCount();
         adjMat = new boolean[n][n];
-        for (int i = 0; i < n; i++)
+        System.out.println("this many nodes:" + n);
+        for (int i = 0; i < n; i++) {
+            if(i%1000 == 0)
+                System.out.println(String.format("we are at" + i + " of " + n));
             for (int j = 0; j < n; j++)
                 adjMat[i][j] = g.getNode(i).hasEdgeBetween(j) ? true : false;
+        }
     }
 
     private void genDegree(){

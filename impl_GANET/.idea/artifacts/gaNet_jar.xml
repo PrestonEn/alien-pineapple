@@ -1,10 +1,14 @@
 <component name="ArtifactManager">
-  <artifact name="gaNet:jar">
+  <artifact type="jar" name="gaNet:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/gaNet_jar</output-path>
-    <root id="root">
-      <element id="archive" name="gaNet.jar">
-        <element id="module-output" name="gaNet" />
-      </element>
+    <root id="archive" name="gaNet.jar">
+      <element id="module-output" name="gaNet" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/GraphTools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/gs-core-1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/json-20170516.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/commons-cli-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/sqlite-jdbc-3.20.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jars/commons-collections4-4.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
