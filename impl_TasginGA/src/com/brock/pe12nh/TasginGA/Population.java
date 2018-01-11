@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Population {
     public boolean badCompare;
@@ -33,16 +34,15 @@ public class Population {
     /**
      * @param parallel use threadpool exection
      */
-    public void scorePop(boolean parallel) {
+    public void scorePop(boolean parallel) throws InterruptedException {
         if (parallel) {
-            ExecutorService exec = Executors.newFixedThreadPool(10);
+            ExecutorService exec = Executors.newFixedThreadPool(8);
             for (Runnable r :
                     pop) {
                 exec.execute(r);
             }
             exec.shutdown();
-            while (!exec.isShutdown()) {
-            }
+            exec.awaitTermination(5, TimeUnit.SECONDS);
         } else {
             for (Individual r :
                     pop) {
@@ -51,57 +51,34 @@ public class Population {
         }
     }
 
-    /**
-     *
-     */
+
     public void sortPop() {
-        try {
-            Collections.sort(pop, new IndividualComparator());
-        } catch (IllegalArgumentException e) {
-            //System.out.print("Contract exception");
-        }
+        Collections.sort(pop, new IndividualComparator());
     }
 
-    /**
-     * Genetic algorithm main loop call
-     */
-    public void updateGen(boolean parallel) {
-        scorePop(parallel); // score the population
-        sortPop(); // sort the population by score, increasing
-
-        // create normalized fitness list for roulette
-        ArrayList<Double> weightList = buildRouletteTable();
-
-        // new population
-        ArrayList<Individual> newPop = new ArrayList<>();
-        ArrayList<Double> newPopScores = new ArrayList<>(); //debugging
-        int eCount = (int) ((double) pop.size() * elitePortion);
-
-        // add portion of elites to new pop
-        for (int i = 0; i < eCount; i++) {
-            newPop.add(pop.get(pop.size() - (i + 1)));
-            newPopScores.add(pop.get(pop.size() - (i + 1)).score);
+    public void updateGen(boolean parallel) throws InterruptedException {
+        sortPop();
+        ArrayList<Individual> elitePop = new ArrayList<Individual>((int)(Main.popSize * Main.elitePortion));
+        ArrayList<Individual> childPop = new ArrayList<Individual>((int)(Main.popSize));
+        for (int i=0; i<(int)(Main.popSize * Main.elitePortion); i++){
+            elitePop.add(0,pop.get((pop.size()-1)-i));
+        }
+        ArrayList<Double> roul = buildRouletteTable();
+        while (childPop.size() < pop.size() - elitePop.size()){
+            Individual c = Individual.oneWayCross(roulSelect(roul), roulSelect(roul));
+            if (Main.randgen.nextDouble() < Main.mutRate){
+                c.mutate();
+            }
+            if (Main.randgen.nextDouble() < Main.cleanRate){
+                c.cleanUp(Main.cleanPortion, Main.cleanThold);
+            }
+            childPop.add(c);
         }
 
-        // child selection
-        while (newPop.size() < pop.size()) {
-            Individual p1 = this.roulSelect(weightList);
-            Individual p2 = this.roulSelect(weightList);
-            Individual newc = Individual.oneWayCross(p1, p2);
+        childPop.addAll(elitePop);
+        pop = childPop;
+        scorePop(true);
 
-            if (Main.randgen.nextDouble() <= Main.mutRate) {
-                newc.mutate();
-            }
-
-            if (Main.randgen.nextDouble() <= Main.cleanRate) {
-                newc.cleanUp(Main.cleanPortion, Main.cleanThold);
-            }
-            newPop.add(newc);
-            newPopScores.add(newc.score);
-        }
-
-
-        pop = newPop;
     }
 
     /**
@@ -163,10 +140,9 @@ public class Population {
         for (int i = 0; i < weightList.size(); i++) {
             val -= weightList.get(i);
             if (val <= 0d) {
-                return pop.get(i);
+                return new Individual(pop.get(i));
             }
         }
-
         return pop.get(pop.size() - 1);
     }
 

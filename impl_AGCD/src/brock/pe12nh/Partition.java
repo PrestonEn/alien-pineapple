@@ -106,9 +106,9 @@ public class Partition {
 
         // TODO: bias the crossover to favor small partitons
         // SEE THE PAPER
-        System.out.format("a size: %d a bias: %f\tb size: %d b bias:%f\n",
-                a.membership.size(), Partition.calcBias(a, b, bias),
-                b.membership.size(), Partition.calcBias(b, a, bias));
+//        System.out.format("a size: %d a bias: %f\tb size: %d b bias:%f\n",
+//                a.membership.size(), Partition.calcBias(a, b, bias),
+//                b.membership.size(), Partition.calcBias(b, a, bias));
 
         for(int i=0; i<aNew.size(); i++){
             if(aNew.get(i) == -1){

@@ -1,6 +1,11 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Background}{3}
-\contentsline {chapter}{\numberline {3}Conclusion}{5}
-\contentsline {chapter}{Bibliography}{6}
-\contentsline {chapter}{Appendices}{7}
-\contentsline {chapter}{\numberline {A}Additional Experimental Analysis}{7}
+\contentsline {section}{\numberline {1.1}The Problem of Community Detection in \\Complex Networks}{1}
+\contentsline {section}{\numberline {1.2}Thesis Structure}{1}
+\contentsline {chapter}{\numberline {2}Background}{2}
+\contentsline {section}{\numberline {2.1}Complex Networks Terms and Concepts}{2}
+\contentsline {section}{\numberline {2.2}Community Detection}{2}
+\contentsline {section}{\numberline {2.3}Genetic}{2}
+\contentsline {chapter}{\numberline {3}Conclusion}{4}
+\contentsline {chapter}{Bibliography}{5}
+\contentsline {chapter}{Appendices}{6}
+\contentsline {chapter}{\numberline {A}Additional Experimental Analysis}{6}

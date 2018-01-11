@@ -17,13 +17,17 @@ public class Main {
         // get params
         try {
 
-            g = new AdjGraph("../benchmark_gen/gml_files/benchmarks/gn/girvan_0.gml");
+            g = new AdjGraph("D:/alien-pineapple/benchmark_gen/gml_files/benchmarks/lfr2/n1000/lfr_1000_mu3_s_0.gml");
             symMat = new SimilarityMatrix(g);
-            Population p = new Population(g);
-            p.generationActions();
-            p.printPop();
-            System.out.println(getArrayString(p.buildSolution()));
+            int r = 0;
 
+            while(r < runs) {
+                Population p = new Population(g);
+                p.generationActions();
+
+//                p.printPop();
+//                System.out.println(getArrayString(p.buildSolution()));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,6 +36,7 @@ public class Main {
     public static String getArrayString(int[] ar){
         String str = "";
         for(int i=0; i < ar.length; i++){
+
             str += ar[i];
             if (i != ar.length-1)
                 str += ",";

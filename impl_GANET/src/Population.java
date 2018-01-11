@@ -47,7 +47,7 @@ public class Population {
         this.scorePop(true);
         sortPop();
         ArrayList<Double> weightList = buildRouletteTable();
-        ArrayList<Individual> newPop = new ArrayList<>();
+        ArrayList<Individual> newPop = new ArrayList<>(Main.popSize);
 
         // get the elites
         int eCount = (int) ((double) pop.size() * Main.elitePortion);
@@ -123,10 +123,10 @@ public class Population {
         for (int i = 0; i < weightList.size(); i++) {
             val -= weightList.get(i);
             if (val <= 0d) {
-                return pop.get(i);
+                return new Individual(pop.get(i));
             }
         }
-        return pop.get(pop.size() - 1);
+        return new Individual(pop.get(pop.size() - 1));
     }
 
 }

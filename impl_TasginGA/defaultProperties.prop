@@ -1,8 +1,0 @@
-popSize = 300
-generations = 30
-mutRate = 0.1
-initRate = 0.3
-elitePortion = 0.1
-cleanRate = 0.5
-cleanThold = 0.7
-cleanPortion = 0.5

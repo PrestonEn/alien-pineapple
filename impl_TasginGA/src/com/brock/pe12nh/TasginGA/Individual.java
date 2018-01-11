@@ -7,21 +7,32 @@ import org.graphstream.graph.Node;
 
 public class Individual implements Runnable {
 
-    int[] membership;
+    public int[] membership;
     public double score;
+    public boolean scored;
     AdjGraph g;
 
     public Individual(AdjGraph g, double initBias) {
         this.g = g;
         membership = new int[g.g.getNodeCount()];
         initGenes(initBias);
+        scored = true;
     }
 
     public Individual(AdjGraph g, int[] mem) {
         this.g = g;
-        membership = mem;
-        this.score = Modularity.getModularity(g, this.membership);
+        membership = Arrays.copyOf(mem, mem.length);
+        scored = false;
     }
+
+    public Individual(Individual i) {
+        this.g = i.g;
+        membership = Arrays.copyOf(i.membership, i.membership.length);
+        this.score =i.score;
+        scored = true;
+    }
+
+
 
     /**
      * <p>Initialization of individuals is done by randomly by assigning each node a random cluster, bounded to
@@ -85,23 +96,24 @@ public class Individual implements Runnable {
      * set a random gene to a random cluster
      */
     public void mutate() {
-        HashSet<Integer> clusts = new HashSet<>();
-
-        for (Integer i : this.membership) {
-            clusts.add(i);
-        }
-
-        int item = Main.randgen.nextInt(clusts.size());
-        int index = Main.randgen.nextInt(this.membership.length);
-        int i = 0;
-        for (Integer it :
-                clusts) {
-            if (i == item) {
-                this.membership[index] = it;
-                return;
-            }
-            i++;
-        }
+//        HashSet<Integer> clusts = new HashSet<>();
+//
+//        for (Integer i : this.membership) {
+//            clusts.add(i);
+//        }
+//
+//        int item = Main.randgen.nextInt(clusts.size());
+//        int index = Main.randgen.nextInt(this.membership.length);
+//        int i = 0;
+//        for (Integer it :
+//                clusts) {
+//            if (i == item) {
+//                this.membership[index] = it;
+//                return;
+//            }
+//            i++;
+//        }
+//        scored = false;
     }
 
     /**
@@ -139,6 +151,7 @@ public class Individual implements Runnable {
                 }
             }
         }
+        scored = false;
     }
 
     private Integer getMode(ArrayList<Integer> a) {
@@ -164,7 +177,10 @@ public class Individual implements Runnable {
 
     @Override
     public void run() {
-        score = Modularity.getModularity(this.g, membership);
+        if(!scored) {
+            score = Modularity.getModularity(this.g, membership);
+            scored = true;
+        }
     }
 
     public void printMembership() {

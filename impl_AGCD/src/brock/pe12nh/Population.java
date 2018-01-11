@@ -17,6 +17,7 @@ public class Population {
     }
 
     ArrayList<Partition> pop;
+    ArrayList<Double> partScore;
     private PartitionLookup lookup;
     AdjGraph g;
     boolean postiveChange;
@@ -43,7 +44,7 @@ public class Population {
     public void generationActions(){
 
         // stopping condition: if no change after x tries, give up
-        while(convergeCount < 1000) {
+        while(convergeCount < convergeAttempts) {
 
             postiveChange = false;
 
@@ -60,18 +61,11 @@ public class Population {
             bp.p2.printMembership();
 
 
-            Partition.crossover(c1, c2, 0.1);
+            Partition.crossover(c1, c2, Main.bias);
 
-
-            System.out.print("child1:");
-            c1.printMembership();
-            System.out.print("child2:");
-            c2.printMembership();
-            System.out.format("converge %d \t popsize %d\n", convergeCount,  this.pop.size());
             double sp = scorePartitions(Arrays.asList(bp.p1, bp.p2));
             double sc = scorePartitions(Arrays.asList(c1, c2));
 
-            System.out.format("parents: %f\tchildren: %f\n", sp, sc);
             if (sc < sp) {
                 postiveChange = true;
                 // replace the parents with the children

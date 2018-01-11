@@ -34,7 +34,8 @@ public class Main {
     public static int reps = 1;
 
     public static void main(String args[]) throws IOException, ParseException,
-            ClassNotFoundException, SQLException {
+            ClassNotFoundException, SQLException, InterruptedException {
+        System.out.println(System.getenv("JAVA_OPTS"));
         // Set up session variables and sql connection
         CommandLineParser parser = new DefaultParser();
         options = new Options();
@@ -55,13 +56,15 @@ public class Main {
         // parse out options
         CommandLine cmdLine = parser.parse(options, args);
         if (cmdLine.hasOption('G')) {
+            System.out.println(cmdLine.getOptionValue('G'));
+
             gmlPath = cmdLine.getOptionValue('G');
         } else {
             System.out.println("you must provide a graph file");
             return;
         }
 
-
+        System.out.println(cmdLine.getArgs());
         if (cmdLine.hasOption('P')) {
             propertiesPath = cmdLine.getOptionValue('P');
             Main.readProperties();
@@ -80,24 +83,27 @@ public class Main {
 
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection("jdbc:sqlite:D://alien-pineapple/ClusterResults.db");
+        System.out.println("reading");
+        AdjGraph a = new AdjGraph(gmlPath);
         int r = 0;
         while (reps > r) {
             randgen = new Random(seed);
             ArrayList<Double> bestScores = new ArrayList();
             ArrayList<Double> avgScores = new ArrayList();
 
-            System.out.println("reading");
-            AdjGraph a = new AdjGraph(gmlPath);
-            System.out.println("initializaing");
+//            System.out.println("initializaing");
             Population p = new Population(popSize, a, elitePortion, initRate);
-
+            long t = 0;
             for (int i = 0; i < generations; i++) {
-                if (i % 5 == 0)
-                    System.out.println("generation" + i + " best: " + p.getBestInd().score + "\taverage: " + p.getPopAvg());
+                t = System.nanoTime();
+//                if ((i+1) % 5 == 0)
+//                    System.out.println("generation" + i + " best: " + p.getBestInd().score + "\taverage: " + p.getPopAvg());
                 p.updateGen(true);
                 updateGenStats(bestScores, avgScores, p);
+                System.out.println((System.nanoTime()-t)/1000000000d);
             }
-            Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
+
+           // Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
             seed = System.nanoTime(); // if we are doing multiple runs, should reset the seed
             r++;
         }
@@ -142,7 +148,7 @@ public class Main {
      * @throws SQLException
      */
     public static void writeRecord(Connection conn, ArrayList<Double> best, ArrayList<Double> avg, Individual bestInd) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResults values(?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResultsRedux values(?,?,?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, "tasgin");
         stmt.setString(2, Long.toString(Main.seed));
         stmt.setString(3, Main.gmlPath);

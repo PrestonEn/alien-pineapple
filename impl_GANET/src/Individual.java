@@ -10,11 +10,13 @@ public class Individual implements Runnable{
     public int[] locus;
     public double score = 0d;
     public AdjGraph g;
+    public boolean scored;
 
     public Individual(int[] locus, AdjGraph g){
         this.locus = locus;
         this.g = g;
         this.score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+        scored = true;
     }
 
     public Individual(AdjGraph g){
@@ -22,6 +24,8 @@ public class Individual implements Runnable{
         this.locus = new int[g.g.getNodeCount()];
         initGenes();
         this.score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+        scored = true;
+
     }
 
     /**
@@ -32,6 +36,7 @@ public class Individual implements Runnable{
         this.locus = i.locus.clone();
         this.score = i.score;
         this.g = i.g;
+        this.scored = i.scored;
     }
 
     /**
@@ -113,11 +118,12 @@ public class Individual implements Runnable{
         if (nIndexs.size() > 0) {
             this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
         }
+        this.scored = false;
     }
 
     public void run(){
-        score =
-                CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+        if(!this.scored)
+            score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
     }
 
     public String getMembershipString(){

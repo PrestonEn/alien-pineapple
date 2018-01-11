@@ -119,7 +119,7 @@ public class Main {
      * @throws SQLException
      */
     public static void writeRecord(Connection conn, ArrayList<Double> best, ArrayList<Double> avg, Individual bestInd) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResults values(?,?,?,?,?,?,?,?)");
+        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResultsRedux values(?,?,?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, "ganet");
         stmt.setString(2, Long.toString(Main.seed));
         stmt.setString(3, Main.gmlPath);
@@ -128,6 +128,10 @@ public class Main {
         stmt.setString(6, Double.toString(bestInd.score));
         stmt.setString(7, Main.propertiesPath);
         stmt.setString(8, bestInd.getMembershipString());
+        stmt.setDouble(9, 0);
+        stmt.setDouble(10, 0);
+        stmt.setDouble(11, 0);
+
         stmt.execute();
     }
 
