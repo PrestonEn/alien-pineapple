@@ -1,6 +1,7 @@
 package com.brock.pe12nh.AdjGraph;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.DefaultGraph;
+import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.stream.file.FileSource;
 import org.graphstream.stream.file.FileSourceFactory;
 import java.io.IOException;
@@ -23,7 +24,7 @@ public class AdjGraph{
     public int vvAssoc;
 
     public AdjGraph(String filePath) throws IOException {
-        g = new DefaultGraph("g");
+        g = new MultiGraph("g");
         FileSource fs = FileSourceFactory.sourceFor(filePath);
 
         fs.addSink(g);
@@ -52,8 +53,8 @@ public class AdjGraph{
         genAdjMat();
         System.out.println("building degree set");
         genDegree();
-        System.out.println("getting graph associativity");
-        this.vvAssoc = this.getVVAssoc();
+        //System.out.println("getting graph associativity");
+        //this.vvAssoc = this.getVVAssoc();
 
     }
 

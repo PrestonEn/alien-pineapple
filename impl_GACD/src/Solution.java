@@ -29,19 +29,4 @@ public class Solution {
         }
     }
 
-    public ArrayList<int[][]> buildSubmats(){
-        ArrayList<int[][]> subMats = new ArrayList<>();
-        for (ArrayList<Integer> al:
-                groups.values()) {
-            int[][] sm = new int[al.size()][al.size()];
-            for (int i=0; i<al.size(); i++){
-                for (int j=0; j<al.size(); j++){
-                    sm[i][j]=g.adjMat[al.get(i)][al.get(j)]?1:0;
-                }
-            }
-            subMats.add(sm);
-        }
-        return subMats;
-    }
-
 }

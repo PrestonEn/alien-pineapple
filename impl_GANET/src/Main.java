@@ -14,12 +14,6 @@ import java.util.Properties;
 import java.util.Random;
 
 public class Main {
-
-    /* TODO Individual cleanup method
-     * TODO argparse
-     * TODO sqlLite
-     */
-
     public static Random randgen;
     public static double powerVal;
     public static int generations;
@@ -94,9 +88,10 @@ public class Main {
 
             randgen = new Random();
             Population p = new Population(popSize, adjG);
+            bestScores.add(p.getMax().score);
+            avgScores.add(p.getPopAvg());
             for (int i = 0; i < generations; i++) {
                 p.updatePop();
-              //  System.out.println(p.getMax().score);
                 bestScores.add(p.getMax().score);
                 avgScores.add(p.getPopAvg());
             }
@@ -119,7 +114,7 @@ public class Main {
      * @throws SQLException
      */
     public static void writeRecord(Connection conn, ArrayList<Double> best, ArrayList<Double> avg, Individual bestInd) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResultsRedux values(?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResults values(?,?,?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, "ganet");
         stmt.setString(2, Long.toString(Main.seed));
         stmt.setString(3, Main.gmlPath);

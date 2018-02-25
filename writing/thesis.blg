@@ -3,6 +3,17 @@ A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: ack.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: system.aux
+A level-1 auxiliary file: literature_review.aux
+A level-1 auxiliary file: experimental_setup.aux
+A level-1 auxiliary file: synthetic.aux
+A level-1 auxiliary file: real.aux
 A level-1 auxiliary file: conclusion.aux
 The style file: plain.bst
 Database file #1: thesis.bib
+Warning--I didn't find a database entry for "holland1975adaptation"
+Warning--I didn't find a database entry for "liu2013genetic"
+Warning--I didn't find a database entry for "rand1971"
+Warning--empty journal in Ding2007
+Warning--empty journal in Peel2016
+Warning--empty journal in Simon1989
+(There were 6 warnings)

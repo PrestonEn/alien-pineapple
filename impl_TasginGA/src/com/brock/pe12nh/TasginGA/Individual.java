@@ -95,25 +95,25 @@ public class Individual implements Runnable {
     /**
      * set a random gene to a random cluster
      */
-    public void mutate() {
-//        HashSet<Integer> clusts = new HashSet<>();
-//
-//        for (Integer i : this.membership) {
-//            clusts.add(i);
-//        }
-//
-//        int item = Main.randgen.nextInt(clusts.size());
-//        int index = Main.randgen.nextInt(this.membership.length);
-//        int i = 0;
-//        for (Integer it :
-//                clusts) {
-//            if (i == item) {
-//                this.membership[index] = it;
-//                return;
-//            }
-//            i++;
-//        }
-//        scored = false;
+    public void mutate(double mutrate) {
+        HashSet<Integer> clusts = new HashSet<>();
+
+        for (Integer i : this.membership) {
+            clusts.add(i);
+        }
+
+        int item = Main.randgen.nextInt(clusts.size());
+        int index = Main.randgen.nextInt(this.membership.length);
+        int i = 0;
+        for (Integer it :
+                clusts) {
+            if (i == item) {
+                this.membership[index] = it;
+                return;
+            }
+            i++;
+        }
+        scored = false;
     }
 
     /**

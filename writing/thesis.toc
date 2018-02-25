@@ -1,11 +1,50 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}The Problem of Community Detection in \\Complex Networks}{1}
-\contentsline {section}{\numberline {1.2}Thesis Structure}{1}
-\contentsline {chapter}{\numberline {2}Background}{2}
-\contentsline {section}{\numberline {2.1}Complex Networks Terms and Concepts}{2}
-\contentsline {section}{\numberline {2.2}Community Detection}{2}
-\contentsline {section}{\numberline {2.3}Genetic}{2}
-\contentsline {chapter}{\numberline {3}Conclusion}{4}
-\contentsline {chapter}{Bibliography}{5}
-\contentsline {chapter}{Appendices}{6}
-\contentsline {chapter}{\numberline {A}Additional Experimental Analysis}{6}
+\contentsline {section}{\numberline {1.1}The Problem of Community Detection in \\Complex Networks}{2}
+\contentsline {section}{\numberline {1.2}Thesis Structure}{2}
+\contentsline {chapter}{\numberline {2}Background}{3}
+\contentsline {section}{\numberline {2.1}Elements of Graph Theory}{3}
+\contentsline {subsection}{\numberline {2.1.1}The Adjacency Matrix}{6}
+\contentsline {section}{\numberline {2.2}Complex Networks}{6}
+\contentsline {subsection}{\numberline {2.2.1}}{7}
+\contentsline {section}{\numberline {2.3}Community Detection In Graphs}{7}
+\contentsline {subsection}{\numberline {2.3.1}Defining Communities}{8}
+\contentsline {subsection}{\numberline {2.3.2}Complexity}{8}
+\contentsline {subsection}{\numberline {2.3.3}Related Problems}{8}
+\contentsline {section}{\numberline {2.4}Genetic Algorithms}{8}
+\contentsline {subsection}{\numberline {2.4.1}Motivation}{8}
+\contentsline {subsection}{\numberline {2.4.2}Biological Terms}{8}
+\contentsline {subsection}{\numberline {2.4.3}The Population}{9}
+\contentsline {subsection}{\numberline {2.4.4}Operators}{9}
+\contentsline {subsubsection}{Selection}{9}
+\contentsline {subsubsection}{Crossover}{9}
+\contentsline {subsubsection}{Mutation}{9}
+\contentsline {chapter}{\numberline {3}Literature Review}{11}
+\contentsline {chapter}{\numberline {4}Methodology}{12}
+\contentsline {section}{\numberline {4.1}Selected Algorithms}{12}
+\contentsline {subsection}{\numberline {4.1.1}Tasgin-Bingol}{12}
+\contentsline {subsection}{\numberline {4.1.2}GA-Net}{12}
+\contentsline {subsection}{\numberline {4.1.3}GACD}{13}
+\contentsline {subsection}{\numberline {4.1.4}GALS}{13}
+\contentsline {section}{\numberline {4.2}The Girvan-Newman Benchmark}{13}
+\contentsline {section}{\numberline {4.3}The LFR Benchmark}{13}
+\contentsline {section}{\numberline {4.4}Benchmark Generator}{13}
+\contentsline {section}{\numberline {4.5}Real World Data}{14}
+\contentsline {subsection}{\numberline {4.5.1}Zachary's Karate Club}{14}
+\contentsline {subsection}{\numberline {4.5.2}Dolphins}{14}
+\contentsline {subsection}{\numberline {4.5.3}College Football}{14}
+\contentsline {subsection}{\numberline {4.5.4}Political Blogs}{14}
+\contentsline {section}{\numberline {4.6}Experiment Description}{14}
+\contentsline {subsection}{\numberline {4.6.1}Variation of Information}{14}
+\contentsline {subsection}{\numberline {4.6.2}Normalized Mutual Information}{14}
+\contentsline {subsection}{\numberline {4.6.3}Rand and Adjusted Rand Index}{15}
+\contentsline {chapter}{\numberline {5}Experiments on Synthetic Graphs}{16}
+\contentsline {section}{\numberline {5.1}The Girvan-Newmann Benchmark}{16}
+\contentsline {section}{\numberline {5.2}LFR Benchmarks With Increasing Mixing \\ Parameter}{16}
+\contentsline {section}{\numberline {5.3}LFR Benchmarks With Increasing Size}{16}
+\contentsline {chapter}{\numberline {6}Experiments on Real Networks}{17}
+\contentsline {section}{\numberline {6.1}Zachary's Karate Club}{17}
+\contentsline {chapter}{\numberline {7}Conclusion}{18}
+\contentsline {chapter}{Bibliography}{20}
+\contentsline {chapter}{Appendices}{21}
+\contentsline {chapter}{\numberline {A}GALS Synthetic Results By Parameter Set}{21}
+\contentsline {chapter}{\numberline {B}GACD Synthetic Results By Parameter Set}{24}

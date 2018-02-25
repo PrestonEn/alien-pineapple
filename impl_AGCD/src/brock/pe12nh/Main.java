@@ -15,18 +15,18 @@ public class Main {
         public static SimilarityMatrix symMat;
     public static void main(String args[]){
         // get params
+
         try {
 
-            g = new AdjGraph("D:/alien-pineapple/benchmark_gen/gml_files/benchmarks/lfr2/n1000/lfr_1000_mu3_s_0.gml");
+            g = new AdjGraph("D:\\\\alien-pineapple\\\\benchmark_gen\\\\gml_files\\\\benchmarks\\\\gn\\\\girvan_mu1_0.gml");
             symMat = new SimilarityMatrix(g);
             int r = 0;
-
+            int runs = 1;
             while(r < runs) {
                 Population p = new Population(g);
                 p.generationActions();
-
-//                p.printPop();
-//                System.out.println(getArrayString(p.buildSolution()));
+                System.out.println(getArrayString(p.buildSolution()));
+                r++;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,8 +38,9 @@ public class Main {
         for(int i=0; i < ar.length; i++){
 
             str += ar[i];
-            if (i != ar.length-1)
+            if (i != ar.length-1) {
                 str += ",";
+            }
         }
         return str;
     }

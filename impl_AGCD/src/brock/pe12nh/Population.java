@@ -44,24 +44,20 @@ public class Population {
     public void generationActions(){
 
         // stopping condition: if no change after x tries, give up
-        while(convergeCount < convergeAttempts) {
+        while(pop.size() > 4 && convergeCount < 100 ) {
+            boolean popLimit = false;
+            if(pop.size() <= 4){
+                popLimit = true;
+            }
+
+            System.out.println(pop.size());
 
             postiveChange = false;
 
-            // select parents
             BreedingPair bp = selectParents();
-
-            // clone them
             Partition c1 = new Partition(bp.p1);
             Partition c2 = new Partition(bp.p2);
-
-            System.out.print("parent1:");
-            bp.p1.printMembership();
-            System.out.print("parent2:");
-            bp.p2.printMembership();
-
-
-            Partition.crossover(c1, c2, Main.bias);
+            Partition.crossover(c1, c2, 0.1);
 
             double sp = scorePartitions(Arrays.asList(bp.p1, bp.p2));
             double sc = scorePartitions(Arrays.asList(c1, c2));
@@ -75,11 +71,10 @@ public class Population {
                 updateParents(bp, c);
             }
 
-            if (!postiveChange) {
+            if (!postiveChange && popLimit) {
                 convergeCount++;
             } else {
                 convergeCount = 0;
-
             }
         }
     }
@@ -119,6 +114,7 @@ public class Population {
 
                 // get sim score of inter cluster neighbours
                 // and treat as tournament (keep the best)
+                // TODO
 
                 p2id = Integer.parseInt(neigh.get(Main.randgen.nextInt(neigh.size())).getId());
                 bp.p2 = this.lookup.getPartition(p2id);

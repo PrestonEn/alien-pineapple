@@ -66,9 +66,7 @@ public class Population {
         ArrayList<Double> roul = buildRouletteTable();
         while (childPop.size() < pop.size() - elitePop.size()){
             Individual c = Individual.oneWayCross(roulSelect(roul), roulSelect(roul));
-            if (Main.randgen.nextDouble() < Main.mutRate){
-                c.mutate();
-            }
+            c.mutate(Main.mutRate);
             if (Main.randgen.nextDouble() < Main.cleanRate){
                 c.cleanUp(Main.cleanPortion, Main.cleanThold);
             }

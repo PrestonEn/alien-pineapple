@@ -107,23 +107,29 @@ public class Individual implements Runnable{
         return new Individual(c1g, p1.g);
     }
 
-    public void mutate(){
-        int i = Main.randgen.nextInt(this.locus.length);
-        Iterator<Node> nIter = this.g.g.getNode(i).getNeighborNodeIterator();
-        ArrayList<Integer> nIndexs = new ArrayList<>();
-        while (nIter.hasNext()) {
-            nIndexs.add(nIter.next().getIndex());
-        }
+    public void mutate(double mutRate){
+        for (int i=0; i < this.locus.length; i++) {
+            if(Main.randgen.nextDouble() < mutRate) {
+                Iterator<Node> nIter = this.g.g.getNode(i).getNeighborNodeIterator();
+                ArrayList<Integer> nIndexs = new ArrayList<>();
+                while (nIter.hasNext()) {
+                    nIndexs.add(nIter.next().getIndex());
+                }
 
-        if (nIndexs.size() > 0) {
-            this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
+                if (nIndexs.size() > 0) {
+                    this.locus[i] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
+                }
+            }
         }
         this.scored = false;
     }
 
     public void run(){
-        if(!this.scored)
+        if(!this.scored) {
             score = CommunityScore.CommunityScore(Individual.decode(this), Main.powerVal);
+            scored = true;
+        }
+
     }
 
     public String getMembershipString(){

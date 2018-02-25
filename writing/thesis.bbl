@@ -1,21 +1,87 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{CateniCollaVannucci:}
-S.~Cateni, V.~Colla, and M.~Vannucci.
-\newblock General purpose input variables extraction: A genetic algorithm based
-  procedure give a gap.
-\newblock In {\em Intelligent Systems Design and Applications, 2009. ISDA '09.
-  Ninth International Conference on}, pages 1278--1283, Nov 2009.
+\bibitem{Adamic2005}
+Lada~A. Adamic and Natalie Glance.
+\newblock {The political blogosphere and the 2004 U.S. election}.
+\newblock {\em Proceedings of the 3rd international workshop on Link discovery
+  - LinkKDD '05}, pages 36--43, 2005.
 
-\bibitem{ChiHyuckLeeParkLee:}
-J.~Chi-Hyuck, S.~Lee, H.~Park, and J.~Lee.
-\newblock Use of partial least squares regression for variable selection and
-  quality prediction.
-\newblock In {\em Computers \& Industrial Engineering (CIE 2009)}, 2009.
+\bibitem{Ding2007}
+Qin Ding, Jim Gasvoda, and a~Clustering Problem.
+\newblock {A Genetic Algorithm for Clustering on Very Large Data Sets}.
+\newblock pages 234--239, 2007.
 
-\bibitem{GoldbergDE:}
-D.E. Goldberg.
-\newblock {\em Genetic Algorithms in Search Optimization and Machine Learning}.
-\newblock Addison Wesley, 1989.
+\bibitem{Kernighan1970}
+B.~W. Kernighan and S.~Lin.
+\newblock {An Efficient Heuristic Procedure for Partitioning Graphs}, 1970.
+
+\bibitem{Lancichinetti2008}
+Andrea Lancichinetti, Santo Fortunato, and Filippo Radicchi.
+\newblock {Benchmark graphs for testing community detection algorithms}.
+\newblock {\em Physical Review E - Statistical, Nonlinear, and Soft Matter
+  Physics}, 78(4):1--5, 2008.
+
+\bibitem{Lancichinetti2010}
+Andrea Lancichinetti, Mikko Kivel{\"{a}}, Jari Saram{\"{a}}ki, and Santo
+  Fortunato.
+\newblock {Characterizing the Community Structure of Complex Networks}.
+\newblock {\em PLoS ONE}, 5(8):e11976, 2010.
+
+\bibitem{Lusseau2003}
+D.~Lusseau.
+\newblock {The emergent properties of a dolphin social network}.
+\newblock {\em Proceedings of the Royal Society B: Biological Sciences},
+  270(Suppl{\_}2):S186--S188, 2003.
+
+\bibitem{Marina2007}
+M~Meilă.
+\newblock {Comparing Clusterings}.
+\newblock {\em Journal of Multivariate Analysis}, 98(5):873--895, 2013.
+
+\bibitem{Peel2016}
+Leto Peel, Daniel~B. Larremore, and Aaron Clauset.
+\newblock {The ground truth about metadata and community detection in
+  networks}.
+\newblock pages 1--28, 2016.
+
+\bibitem{Pizzuti2008}
+Clara Pizzuti.
+\newblock {GA-Net: A genetic algorithm for community detection in social
+  networks}.
+\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)}, 5199
+  LNCS:1081--1090, 2008.
+
+\bibitem{Pons2006}
+Pascal Pons and Matthieu Latapy.
+\newblock {Computing Communities in Large Networks Using Random Walks}.
+\newblock {\em Journal of Graph Algorithms and Applications}, 10(2):191--218,
+  2006.
+
+\bibitem{Shi2009}
+Chuan Shi, Yi~Wang, Bin Wu, and Cha Zhong.
+\newblock {A New Genetic Algorithm for Community Detection}.
+\newblock {\em Part II LNICST}, 5:1298--1309, 2009.
+
+\bibitem{Simon1989}
+D~Simon.
+\newblock {Partitioning Alex Sparse Pothen Matrices with Eigenvectors of Graphs
+  Report July NAS Systems July Division Mail Stop CA 94035}.
+\newblock 1989.
+
+\bibitem{Tasgin2006}
+Mursel Tasgin and Haluk Bingol.
+\newblock {Community Detection in Complex Networks using Genetic Algorithm}.
+\newblock {\em arXiv preprint}, page~6, 2006.
+
+\bibitem{Watts1998}
+D~J~J Watts and S~H~H Strogatz.
+\newblock {Collective dynamics of 'small-world' networks.}
+\newblock {\em Nature}, 393(6684):440--442, 1998.
+
+\bibitem{Zachary1977}
+Wayne~W. Zachary.
+\newblock {An Information Flow Model for Conflict and Fission in Small Groups}.
+\newblock {\em Journal of Anthropological Research}, 33(4):452--473, 1977.
 
 \end{thebibliography}

@@ -1,11 +1,7 @@
 package com.brock.pe12nh.TasginGA;
 
 import com.brock.pe12nh.AdjGraph.AdjGraph;
-import com.sun.org.apache.xpath.internal.operations.Number;
 import org.apache.commons.cli.*;
-import org.json.JSONObject;
-
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -90,21 +86,16 @@ public class Main {
             randgen = new Random(seed);
             ArrayList<Double> bestScores = new ArrayList();
             ArrayList<Double> avgScores = new ArrayList();
-
-//            System.out.println("initializaing");
             Population p = new Population(popSize, a, elitePortion, initRate);
-            long t = 0;
+            updateGenStats(bestScores, avgScores, p);
             for (int i = 0; i < generations; i++) {
-                t = System.nanoTime();
-//                if ((i+1) % 5 == 0)
-//                    System.out.println("generation" + i + " best: " + p.getBestInd().score + "\taverage: " + p.getPopAvg());
                 p.updateGen(true);
                 updateGenStats(bestScores, avgScores, p);
-                System.out.println((System.nanoTime()-t)/1000000000d);
             }
-
-           // Main.writeRecord(conn, bestScores, avgScores, p.getBestInd());
-            seed = System.nanoTime(); // if we are doing multiple runs, should reset the seed
+            writeRecord(conn,avgScores,bestScores,p.getBestInd());
+            System.out.println(p.getBestInd().score);
+            System.out.println(p.getBestInd().getMembershipString());
+            seed = System.nanoTime();
             r++;
         }
 
@@ -148,7 +139,7 @@ public class Main {
      * @throws SQLException
      */
     public static void writeRecord(Connection conn, ArrayList<Double> best, ArrayList<Double> avg, Individual bestInd) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResultsRedux values(?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement stmt = conn.prepareStatement("insert into ClusterResults values(?,?,?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, "tasgin");
         stmt.setString(2, Long.toString(Main.seed));
         stmt.setString(3, Main.gmlPath);

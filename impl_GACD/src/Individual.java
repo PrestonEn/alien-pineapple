@@ -1,9 +1,8 @@
 import com.brock.pe12nh.AdjGraph.AdjGraph;
 import org.graphstream.graph.Node;
+import org.w3c.dom.traversal.NodeIterator;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * Created by speng on 7/31/2017.
@@ -12,11 +11,13 @@ public class Individual implements Runnable{
     public int[] locus;
     public double score = 0d;
     public AdjGraph g;
+    public boolean scored;
 
     public Individual(int[] locus, AdjGraph g){
         this.locus = locus;
         this.g = g;
-
+        this.score = Modularity.getModularity(this.g, Individual.decode(this));
+        scored = true;
     }
 
     public Individual(AdjGraph g){
@@ -24,7 +25,14 @@ public class Individual implements Runnable{
         this.locus = new int[g.g.getNodeCount()];
         initGenes();
         this.repair();
-        this.score = Modularity.getModularity(this.g, Individual.decode(this).membership);
+        this.score = Modularity.getModularity(this.g, Individual.decode(this));
+        scored = true;
+    }
+
+    public Individual(Individual i){
+        this.g = i.g;
+        this.locus = i.locus.clone();
+        this.score = i.score;
     }
 
     /**
@@ -32,8 +40,16 @@ public class Individual implements Runnable{
      */
     private void initGenes(){
         for (int i=0; i < locus.length; i++){
-            int rand = Main.randgen.nextInt(locus.length);
-            this.locus[i] =rand;
+            Iterator<Node> niter = g.g.getNode(i).getNeighborNodeIterator();
+            ArrayList<Integer> nghIndex = new ArrayList<>();
+            while (niter.hasNext()) {
+                nghIndex.add(niter.next().getIndex());
+            }
+            if(nghIndex.size() > 0) {
+                this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
+            }else {
+                this.locus[i] = i;
+            }
         }
     }
 
@@ -87,31 +103,119 @@ public class Individual implements Runnable{
                 while (niter.hasNext()) {
                     nghIndex.add(niter.next().getIndex());
                 }
-                this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
+                if(nghIndex.size() > 0) {
+                    this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
+                }else {
+                    this.locus[i] = i;
+                }            }
+        }
+    }
+
+    public static Individual[] crossover(Individual p1, Individual p2){
+        ArrayList<Integer> p1Indexes = p1.getClusterIndexs();
+        ArrayList<Integer> p2Indexes = p2.getClusterIndexs();
+
+        Individual p1C = new Individual(p1);
+        Individual p2C = new Individual(p2);
+
+        for (int i:
+             p1Indexes) {
+            p2C.locus[i] = p1.locus[i];
+        }
+
+        for (int i:
+                p2Indexes) {
+            p1C.locus[i] = p2.locus[i];
+        }
+
+        Individual[] c = {p1C, p2C};
+        return c;
+    }
+
+
+    /**
+     * Get a single string of locus indexes for use in crossover
+     * @return
+     */
+    public ArrayList<Integer> getClusterIndexs(){
+        ArrayList<Integer> indexes = new ArrayList<>();
+        boolean[] traveresed = new boolean[this.locus.length];
+        int index = Main.randgen.nextInt(this.locus.length);
+        while (traveresed[index] != true){
+            indexes.add(index);
+            traveresed[index] = true;
+            index = this.locus[index];
+        }
+        return indexes;
+    }
+
+
+    public void mutate(){
+        for(int i=0; i<Math.max(this.locus.length * Main.mutatePortion, 1); i++) {
+            int index = Main.randgen.nextInt(this.locus.length);
+            Iterator<Node> nIter = this.g.g.getNode(index).getNeighborNodeIterator();
+            ArrayList<Integer> nIndexs = new ArrayList<>();
+            while (nIter.hasNext()) {
+                nIndexs.add(nIter.next().getIndex());
+            }
+
+            if (nIndexs.size() > 1) {
+                this.locus[index] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
             }
         }
     }
 
-    public static Individual crossover(Individual p1, Individual p2){
+    public void marginalMutate(){
+        Solution c = Individual.decode(this);
+        ArrayList<Integer> marginalGenes = MarginalExtractor.marginalNodes(this);
+        ArrayList<Integer> neighbours;
+        HashMap<Integer, ArrayList<Integer>> neighbourClusters;
+        Set<Integer> labels;
+        int bestLabel;
+        int origLabel;
+        double score;
+        for (int i:
+             marginalGenes) {
+            //init for this node
+            neighbourClusters = new HashMap<>();
+            origLabel = c.membership[i];
+            score = Double.MIN_VALUE;
+            Iterator<Node> ni = this.g.g.getNode(i).getNeighborNodeIterator();
+            neighbours = new ArrayList<>();
+            labels = new HashSet<>();
+            bestLabel = origLabel;
+            // consider the current labeling
+            neighbours.add(i);
+            labels.add(origLabel);
+            neighbourClusters.put(origLabel, new ArrayList<>());
+            // get neighbourhood and associate neighbours with clusters
+            while (ni.hasNext()){
+                int index = ni.next().getIndex();
+                neighbours.add(index);
+                labels.add(c.membership[index]);
+                if(neighbourClusters.containsKey(c.membership[index])){
+                    neighbourClusters.get(c.membership[index]).add(index);
+                }else  {
+                    neighbourClusters.put(c.membership[index], new ArrayList<>());
+                    neighbourClusters.get(c.membership[index]).add(index);
+                }
+            }
 
-    }
-
-    public void mutate(){
-        int index = Main.randgen.nextInt(this.locus.length);
-        Iterator<Node> nIter = this.g.g.getNode(index).getNeighborNodeIterator();
-        ArrayList<Integer> nIndexs = new ArrayList<>();
-        while (nIter.hasNext()){
-            nIndexs.add(nIter.next().getIndex());
+            // identify best new candidate cluster
+            for (int label:
+                 labels) {
+                c.membership[i] = label;
+                double candScore = Modularity.getLocalScore(i, c , this.g);
+                if(candScore > score){
+                    bestLabel = label;
+                }
+            }
+            this.locus[i] = neighbourClusters.get(bestLabel).get(Main.randgen.nextInt(neighbourClusters.get(bestLabel).size()));
         }
-
-        if (nIndexs.size() > 1){
-            this.locus[index] = nIndexs.get(Main.randgen.nextInt(nIndexs.size()));
-        }
-
     }
 
     public void run(){
-        score = Modularity.getModularity(this.g, Individual.decode(this).membership);
+        score = Modularity.getModularity(this.g, Individual.decode(this));
     }
 
     public String getMembershipString(){

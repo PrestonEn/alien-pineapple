@@ -2,7 +2,6 @@ import com.brock.pe12nh.AdjGraph.AdjGraph;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -44,7 +43,6 @@ public class Population {
         }
     }
     public void updatePop() throws InterruptedException {
-        this.scorePop(true);
         sortPop();
         ArrayList<Double> weightList = buildRouletteTable();
         ArrayList<Individual> newPop = new ArrayList<>(Main.popSize);
@@ -57,24 +55,19 @@ public class Population {
 
         // (produce popSize * crossover rate) individuals through crossover
         for (int i=0; i < (int)(Main.popSize * Main.crossoverRate); i++) {
-            Individual p1 = this.roulSelect(weightList);
-            Individual p2 = this.roulSelect(weightList);
-
-            Individual newc = Individual.crossover(p1, p2);
+            Individual newc = Individual.crossover(this.roulSelect(weightList), this.roulSelect(weightList));
             if (Main.randgen.nextDouble() <= Main.mutRate)
-                newc.mutate();
+            newc.mutate(Main.mutRate);
             newPop.add(newc);
         }
 
-        //roulette select the rest
         while (newPop.size() < Main.popSize){
             Individual i = new Individual(this.roulSelect(weightList));
-            if (Main.randgen.nextDouble() <= Main.mutRate)
-                i.mutate();
+            i.mutate(Main.mutRate);
             newPop.add(i);
         }
-
         this.pop = newPop;
+        this.scorePop(true);
     }
 
     /**

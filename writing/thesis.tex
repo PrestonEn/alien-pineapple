@@ -1,7 +1,7 @@
 %Thesis Tempate for Computer Science theses, Brock University
 
 \documentclass[12pt,oneside,openany]{book}
-
+\usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{verbatim, appendix}
@@ -10,7 +10,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{enumitem}
-
+\usepackage{longtable}
 %including online sources: from wikipidia (cite sources)
 \usepackage{url}
 
@@ -80,6 +80,10 @@
 
 \include{introduction}  
 \include{system}  
+\include{literature_review}  
+\include{experimental_setup}  
+\include{synthetic}
+\include{real}    
 \include{conclusion}     
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,6 +94,7 @@
 \cleardoublepage
 \clearpage
 \bibliographystyle{plain}
+
 \bibliography{thesis}
 \addcontentsline{toc}{chapter}{Bibliography} 
 %this adds the Bibliography to the Table of Contents *Note it might 
