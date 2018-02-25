@@ -1,0 +1,132 @@
+\chapter{Methodology}
+Here we describe the selected algorithms and their parameters in detail. We also discuss the nature of the benchmarks and real world data, giving a summary of the range of tests to be performed. 
+
+\section{Selected Algorithms}
+\subsection{Tasgin-Bingol}
+One of the earliest implementations of a genetic algorithm for the network clustering problem \cite{Tasgin2006}, Tasgin and Bingol's approach is an example of one of the more naive approaches. Each individual is represented as an array of size $n$, each index corresponding to a node of the input graph. The population is initialized with a random walk over the graph. . It utilizes modularity as its fitness function. Its mutation operator is simple. For the selected node $i$, select a member of $\Gamma(i)$, and set $i$ to be in its community.
+
+The table \ref{table:1} is an example of referenced \LaTeX elements.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
+		\hline
+		1 & 6 & 87837 & 787 & 6  \\ 
+
+		\hline
+	\end{tabular}
+	\caption{Tasgin-Bingol's default parameters}
+	\label{table:1}
+\end{table}
+
+The
+
+
+
+\subsection{GA-Net}
+\cite{Pizzuti2008}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
+		\hline
+		1 & 6 & 87837 & 787 & 6  \\ 
+		
+		\hline
+	\end{tabular}
+	\caption{GA-Net's default parameters}
+	\label{table:1}
+\end{table}
+
+
+\subsection{GACD}
+\cite{Shi2009}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
+		\hline
+		1 & 6 & 87837 & 787 & 6  \\ 
+		
+		\hline
+	\end{tabular}
+	\caption{GACD's default parameters}
+	\label{table:1}
+\end{table}
+
+
+\subsection{GALS}
+\cite{liu2013genetic}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c |}
+		\hline
+		Population Size & Generations  & a \\ [0.5ex] 
+		\hline
+		1 & 6 & a \\ 
+		
+		\hline
+	\end{tabular}
+	\caption{GALS' default parameters}
+	\label{table:1}
+\end{table}
+
+
+\section{The Girvan-Newman Benchmark}
+
+
+
+\section{The LFR Benchmark}
+\begin{tabular}{|c|}
+	\hline 
+	Number of Nodes \\ 
+	\hline 
+	Maximum Degree \\ 
+	\hline 
+\end{tabular} 
+
+\cite{Lancichinetti2008}
+
+
+\section{Benchmark Generator}
+All synthetic networks were created using Andrea Lancichinetti's benchmark generation applications 
+
+\section{Real World Data}
+\subsection{Zachary's Karate Club}
+Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks used to show an algorithm can effectively identify a set of communities. The graph shows the reported relationships between members of a martial arts club, after a schism was formed by a conflict between the lead instructor and the owner of the club. Though small, the graph shows the expected power law of degree distribution for 
+
+\begin{figure}[!htb]
+	\begin{center}
+		\includegraphics[scale=.75]{images/kachary.png}
+	\end{center}
+	\caption{The flow of a typical genetic algorithm.}
+	\label{logo}
+\end{figure}
+
+\subsection{Dolphins}
+\cite{Lusseau2003}
+
+
+\subsection{College Football}
+\cite{Girvan2002}
+
+
+\subsection{Political Blogs}
+\cite{Adamic2005}
+
+
+\section{Experiment Description}
+
+
+\subsection{Variation of Information}
+\cite{Marina2007}
+
+\subsection{Normalized Mutual Information}
+The Normalized Mutual Information (NMI) of a community partition 
+
+\subsection{Rand and Adjusted Rand Index}
+\cite{rand1971}
