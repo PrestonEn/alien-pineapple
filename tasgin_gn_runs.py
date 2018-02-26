@@ -7,7 +7,7 @@ import psutil
 p = psutil.Process(os.getpid())
 p.nice(psutil.REALTIME_PRIORITY_CLASS)
 # get all files in gn folder
-data_path = "benchmark_gen/gml_files/benchmarks/gn/"
+data_path = "benchmark_gen/gml_files/benchmarks/gn_kout/"
 jarpath = "impl_TasginGA/out/artifacts/impl_TasginGA_jar/impl_TasginGA.jar"
 cmd = "java -jar "
 

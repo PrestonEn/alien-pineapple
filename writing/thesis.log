@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  24 FEB 2018 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  25 FEB 2018 22:55
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -589,14 +589,13 @@ LaTeX Warning: Label `table:1' multiply defined.
 
 LaTeX Warning: Label `logo' multiply defined.
 
-) (synthetic.aux) (real.aux) (conclusion.aux)
 
-LaTeX Warning: Label `tab:long' multiply defined.
+LaTeX Warning: Label `logo' multiply defined.
 
 
-LaTeX Warning: Label `tab:long' multiply defined.
+LaTeX Warning: Label `logo' multiply defined.
 
-)
+) (synthetic.aux) (real.aux) (conclusion.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
@@ -611,7 +610,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen134
@@ -774,7 +774,7 @@ Chapter 1.
 
  (system.tex
 Chapter 2.
-<images/simple_graph.png, id=39, 301.125pt x 301.125pt>
+<images/simple_graph.png, id=41, 301.125pt x 301.125pt>
 File: images/simple_graph.png Graphic file (type png)
 
 <use images/simple_graph.png>
@@ -788,38 +788,41 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-] [4 <./images/simple_graph.png>] [5]
-<images/Internet_map_1024.jpg, id=57, 1284.8pt x 1284.8pt>
+] [4 <./images/simple_graph.png>]
+<images/Internet_map_1024.jpg, id=52, 1284.8pt x 1284.8pt>
 File: images/Internet_map_1024.jpg Graphic file (type jpg)
 
 <use images/Internet_map_1024.jpg>
-Package pdftex.def Info: images/Internet_map_1024.jpg used on input line 43.
+Package pdftex.def Info: images/Internet_map_1024.jpg used on input line 46.
 (pdftex.def)             Requested size: 256.95544pt x 256.95544pt.
 
-<images/communities.png, id=58, 395.4775pt x 318.18875pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/communities.png, id=53, 395.4775pt x 318.18875pt>
 File: images/communities.png Graphic file (type png)
 
 <use images/communities.png>
-Package pdftex.def Info: images/communities.png used on input line 55.
+Package pdftex.def Info: images/communities.png used on input line 57.
 (pdftex.def)             Requested size: 276.83235pt x 222.73059pt.
- [6 <./images/Internet_map_1024.jpg>] [7 <./images/communities.png>]
+ [5] [6 <./images/Internet_map_1024.jpg> <./images/communities.png>]
 
-LaTeX Warning: Citation `holland1975adaptation' on page 8 undefined on input li
-ne 83.
+LaTeX Warning: Citation `holland1975adaptation' on page 7 undefined on input li
+ne 87.
 
-[8] <images/genetic_typical.png, id=69, 438.0pt x 377.41pt>
+[7] <images/genetic_typical.png, id=66, 438.0pt x 377.41pt>
 File: images/genetic_typical.png Graphic file (type png)
 
 <use images/genetic_typical.png>
-Package pdftex.def Info: images/genetic_typical.png used on input line 114.
+Package pdftex.def Info: images/genetic_typical.png used on input line 121.
 (pdftex.def)             Requested size: 328.49919pt x 283.0568pt.
-) [9 <./images/genetic_typical.png>] [10]
+) [8] [9 <./images/genetic_typical.png>]
 \openout2 = `literature_review.aux'.
 
 
 (literature_review.tex
 Chapter 3.
-) [11
+) [10
 
 
 
@@ -831,53 +834,104 @@ Chapter 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12
+[11
 
 
 
 ]
 
-LaTeX Warning: Citation `liu2013genetic' on page 13 undefined on input line 63.
+LaTeX Warning: Citation `liu2013genetic' on page 12 undefined on input line 65.
 
 
-[13]
+[12] <images/zachary_degree_dist.png, id=84, 543.02875pt x 426.59375pt>
+File: images/zachary_degree_dist.png Graphic file (type png)
 
-LaTeX Warning: File `images/kachary.png' not found on input line 104.
+<use images/zachary_degree_dist.png>
+Package pdftex.def Info: images/zachary_degree_dist.png used on input line 112.
 
+(pdftex.def)             Requested size: 271.5137pt x 213.29634pt.
 
-! Package pdftex.def Error: File `images/kachary.png' not found.
+<images/dolphins_degree_dist.png, id=85, 543.02875pt x 412.54124pt>
+File: images/dolphins_degree_dist.png Graphic file (type png)
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 ...degraphics[scale=.75]{images/kachary.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use images/dolphins_degree_dist.png>
+Package pdftex.def Info: images/dolphins_degree_dist.png used on input line 123
+.
+(pdftex.def)             Requested size: 271.5137pt x 206.27011pt.
 
+<images/football.png, id=86, 602.25pt x 602.25pt>
+File: images/football.png Graphic file (type png)
+ <use images/football.png>
+Package pdftex.def Info: images/football.png used on input line 136.
+(pdftex.def)             Requested size: 301.12425pt x 301.12425pt.
 
-LaTeX Warning: Citation `Girvan2002' on page 14 undefined on input line 115.
+[13 <./images/zachary_degree_dist.png>] [14 <./images/dolphins_degree_dist.png>
+]
 
+LaTeX Warning: Citation `rand1971' on page 15 undefined on input line 160.
 
-LaTeX Warning: Citation `rand1971' on page 14 undefined on input line 132.
-
-) [14] [15]
+) [15 <./images/football.png>]
 \openout2 = `synthetic.aux'.
 
  (synthetic.tex
 Chapter 5.
+<images/girvan_kout_1_0.png, id=96, 602.25pt x 602.25pt>
+File: images/girvan_kout_1_0.png Graphic file (type png)
+
+<use images/girvan_kout_1_0.png>
+Package pdftex.def Info: images/girvan_kout_1_0.png used on input line 8.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+<images/girvan_kout_4_0.png, id=97, 602.25pt x 602.25pt>
+File: images/girvan_kout_4_0.png Graphic file (type png)
+
+<use images/girvan_kout_4_0.png>
+Package pdftex.def Info: images/girvan_kout_4_0.png used on input line 8.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+<images/girvan_kout_7_0.png, id=98, 602.25pt x 602.25pt>
+File: images/girvan_kout_7_0.png Graphic file (type png)
+
+<use images/girvan_kout_7_0.png>
+Package pdftex.def Info: images/girvan_kout_7_0.png used on input line 10.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+<images/girvan_kout_8_0.png, id=99, 602.25pt x 602.25pt>
+File: images/girvan_kout_8_0.png Graphic file (type png)
+
+<use images/girvan_kout_8_0.png>
+Package pdftex.def Info: images/girvan_kout_8_0.png used on input line 10.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+<images/girvan_kout_9_0.png, id=100, 602.25pt x 602.25pt>
+File: images/girvan_kout_9_0.png Graphic file (type png)
+
+<use images/girvan_kout_9_0.png>
+Package pdftex.def Info: images/girvan_kout_9_0.png used on input line 12.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+<images/girvan_kout_13_0.png, id=101, 602.25pt x 602.25pt>
+File: images/girvan_kout_13_0.png Graphic file (type png)
+
+<use images/girvan_kout_13_0.png>
+Package pdftex.def Info: images/girvan_kout_13_0.png used on input line 12.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
+
+
+LaTeX Warning: Float too large for page by 3.4411pt on input line 17.
+
 ) [16
 
 
 
-]
+] [17 <./images/girvan_kout_1_0.png> <./images/girvan_kout_4_0.png> <./images/g
+irvan_kout_7_0.png> <./images/girvan_kout_8_0.png> <./images/girvan_kout_9_0.pn
+g> <./images/girvan_kout_13_0.png>]
 \openout2 = `real.aux'.
 
  (real.tex
 Chapter 6.
-) [17
+) [18
 
 
 
@@ -886,24 +940,20 @@ Chapter 6.
 
  (conclusion.tex
 Chapter 7.
-) [18
+) [19
 
 
 
-] (thesis.bbl [19
+] (thesis.bbl [20
 
 
 
 
-]) [20] (appendA.tex
+] [21] [22] [23] [24]) [25] (appendA.tex
 Appendix A.
-[21
+) [26
 
 
-
-] [22] [23]
-Appendix B.
-) [24
 
 ] (thesis.aux (abstract.aux) (ack.aux) (introduction.aux) (system.aux)
 (literature_review.aux) (experimental_setup.aux) (synthetic.aux) (real.aux)
@@ -916,13 +966,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5327 strings out of 493334
- 76170 string characters out of 3136672
- 159625 words of memory out of 3000000
- 8663 multiletter control sequences out of 15000+200000
+ 5411 strings out of 493334
+ 77968 string characters out of 3136672
+ 149614 words of memory out of 3000000
+ 8739 multiletter control sequences out of 15000+200000
  12348 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,46p,1229b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,11n,41p,1229b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
@@ -935,9 +985,9 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (32 pages, 1645342 bytes).
+Output written on thesis.pdf (34 pages, 4612684 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
+ 175 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

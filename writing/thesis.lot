@@ -1,17 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Locus Decoding Algorithm\relax }}{10}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Locus Decoding Algorithm\relax }}{9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Tasgin-Bingol's default parameters\relax }}{12}
-\contentsline {table}{\numberline {4.2}{\ignorespaces GA-Net's default parameters\relax }}{13}
-\contentsline {table}{\numberline {4.3}{\ignorespaces GACD's default parameters\relax }}{13}
-\contentsline {table}{\numberline {4.4}{\ignorespaces GALS' default parameters\relax }}{13}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Tasgin-Bingol's default parameters\relax }}{11}
+\contentsline {table}{\numberline {4.2}{\ignorespaces GA-Net's default parameters\relax }}{12}
+\contentsline {table}{\numberline {4.3}{\ignorespaces GACD's default parameters\relax }}{12}
+\contentsline {table}{\numberline {4.4}{\ignorespaces GALS' default parameters\relax }}{12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Mean NMI results for each parameter set used for the GALS algorithm for the LFR mixing parameter graphs.\relax }}{21}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Mean NMI results for each parameter set used for the GALS algorithm for the GN benchmark graphs.\relax }}{22}
-\contentsline {table}{\numberline {A.3}{\ignorespaces Mean NMI results for each parameter set used for the GALS algorithm for the LFR size graphs.\relax }}{22}
 \addvspace {10\p@ }

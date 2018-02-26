@@ -6,14 +6,151 @@ Lada~A. Adamic and Natalie Glance.
 \newblock {\em Proceedings of the 3rd international workshop on Link discovery
   - LinkKDD '05}, pages 36--43, 2005.
 
+\bibitem{Almeida2011}
+H{\'{e}}lio Almeida, Dorgival Guedes, Wagner Meira, and Mohammed~J. Zaki.
+\newblock {Is there a best quality metric for graph clusters?}
+\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)}, 6911
+  LNAI(PART 1):44--59, 2011.
+
+\bibitem{Brandes}
+Ulrik Brandes, Daniel Delling, Marco Gaertler, Robert G{\"{o}}rke, Martin
+  Hoefer, Zoran Nikoloski, and Dorothea Wagner.
+\newblock {On Finding Graph Clusterings with Maximum Modularity}.
+\newblock {\em Graph-Theoretic Concepts in Computer Science},
+  (001907):121--132.
+
+\bibitem{Brandes2003}
+Ulrik Brandes, Marco Gaertler, and Dorothea Wagner.
+\newblock {Experiments on Graph Clustering Algorithms}.
+\newblock {\em Lecture Notes in Computer Science}, 2832:568--579, 2003.
+
+\bibitem{Brandes2008}
+Ulrik Brandes, Marco Gaertler, and Dorothea Wagner.
+\newblock {Engineering graph clustering}.
+\newblock {\em Journal of Experimental Algorithmics}, 12(1):1, 2008.
+
+\bibitem{Condon1999}
+Anne Condon and Richard~M. Karp.
+\newblock {Algorithms for graph partitioning on the planted partition model}.
+\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+  1671:221--232, 1999.
+
+\bibitem{Danon2005}
+Leon Danon, Albert D{\'{i}}az-Guilera, Jordi Duch, and Alex Arenas.
+\newblock {Comparing community structure identification}.
+\newblock {\em Journal of Statistical Mechanics}, 2005(09):P09008, 2005.
+
+\bibitem{Danon2006}
+Leon Danon, Albert Iaz-Guilera, and Alex Arenas.
+\newblock {Effect of size heterogeneity on community identification in complex
+  networks}.
+\newblock 2006.
+
 \bibitem{Ding2007}
 Qin Ding, Jim Gasvoda, and a~Clustering Problem.
 \newblock {A Genetic Algorithm for Clustering on Very Large Data Sets}.
 \newblock pages 234--239, 2007.
 
+\bibitem{Emmons2016}
+Scott Emmons, Stephen Kobourov, Mike Gallant, and Katy B{\"{o}}rner.
+\newblock {Analysis of network clustering algorithms and cluster quality
+  metrics at scale}.
+\newblock {\em PLoS ONE}, 11(7):1--18, 2016.
+
+\bibitem{Feng2007}
+Zhidan Feng, Xiaowei Xu, Nurcan Yuruk, and Thomas A~J Schweiger.
+\newblock {A novel similarity-based modularity function for graph
+  partitioning}.
+\newblock {\em Data Warehousing and Knowledge Discovery}, pages 385--396, 2007.
+
+\bibitem{Fortunato2010}
+Santo Fortunato.
+\newblock {Community detection in graphs}.
+\newblock {\em Physics Reports}, 486(3-5):75--174, 2010.
+
+\bibitem{Fortunato2007}
+Santo Fortunato and Marc Barth{\'{e}}lemy.
+\newblock {Resolution limit in community detection.}
+\newblock {\em Pnas}, 104(1):36--41, 2007.
+
+\bibitem{Fortunato2016}
+Santo Fortunato and Darko Hric.
+\newblock {Community detection in networks: A user guide}.
+\newblock {\em Physics Reports}, 2016.
+
+\bibitem{FortunatoL09}
+Santo Fortunato and Andrea Lancichinetti.
+\newblock Community detection algorithms: a comparative analysis: invited
+  presentation, extended abstract.
+\newblock In {\em 4th International Conference on Performance Evaluation
+  Methodologies and Tools, {VALUETOOLS} '09, Pisa, Italy, October 20-22, 2009},
+  page~27, 2009.
+
+\bibitem{Girvan2002}
+M.~Girvan and M.~E.~J. Newman.
+\newblock {Community structure in social and biological networks}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  99(12):7821--7826, 2002.
+
+\bibitem{Goldberg1988}
+David~E. Goldberg and John~H. Holland.
+\newblock {Genetic Algorithms and Machine Learning}.
+\newblock {\em Machine Learning}, 3(2):95--99, 1988.
+
+\bibitem{Good2010}
+Benjamin~H. Good, Yves~Alexandre {De Montjoye}, and Aaron Clauset.
+\newblock {Performance of modularity maximization in practical contexts}.
+\newblock {\em Physical Review E - Statistical, Nonlinear, and Soft Matter
+  Physics}, 81(4):1--20, 2010.
+
+\bibitem{Goss-Souza2017}
+Dennis Goss-Souza, Lucas~William Mendes, Clovis~Daniel Borges, Dilmar Baretta,
+  Siu~Mui Tsai, and Jorge~L.M. Rodrigues.
+\newblock {The Structure and Function of Complex Networks}.
+\newblock {\em FEMS microbiology ecology}, 93(10), 2017.
+
+\bibitem{Gustafsson2006}
+Mika Gustafsson, Michael H{\"{o}}rnquist, and Anna Lombardi.
+\newblock {Comparison and validation of community structures in complex
+  networks}.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  367(December):559--576, 2006.
+
+\bibitem{Hric2014}
+Darko Hric, Richard~K. Darst, and Santo Fortunato.
+\newblock {Community detection in networks: Structural communities versus
+  ground truth}.
+\newblock pages 1--21, 2014.
+
 \bibitem{Kernighan1970}
 B.~W. Kernighan and S.~Lin.
 \newblock {An Efficient Heuristic Procedure for Partitioning Graphs}, 1970.
+
+\bibitem{Kim2011}
+Jin Kim, Inwook Hwang, Yong-Hyuk Kim, and Byung-Ro Moon.
+\newblock {Genetic approaches for graph partitioning}.
+\newblock {\em Proceedings of the 13th annual conference on Genetic and
+  evolutionary computation - GECCO '11}, page 473, 2011.
+
+\bibitem{Kunegis2013}
+J.~Kunegis.
+\newblock {KONECT - The koblenz network collection}.
+\newblock {\em WWW 2013 Companion - Proceedings of the 22nd International
+  Conference on World Wide Web}, pages 1343--1350, 2013.
+
+\bibitem{Kunegis:2013:KKN:2487788.2488173}
+J{\'e}r\^{o}me Kunegis.
+\newblock Konect: The koblenz network collection.
+\newblock In {\em Proceedings of the 22Nd International Conference on World
+  Wide Web}, WWW '13 Companion, pages 1343--1350, New York, NY, USA, 2013. ACM.
+
+\bibitem{Lancichinetti2011}
+Andrea Lancichinetti and Santo Fortunato.
+\newblock {Limits of modularity maximization in community detection}.
+\newblock {\em Physical Review E - Statistical, Nonlinear, and Soft Matter
+  Physics}, 84(6):1--9, 2011.
 
 \bibitem{Lancichinetti2008}
 Andrea Lancichinetti, Santo Fortunato, and Filippo Radicchi.
@@ -27,6 +164,30 @@ Andrea Lancichinetti, Mikko Kivel{\"{a}}, Jari Saram{\"{a}}ki, and Santo
 \newblock {Characterizing the Community Structure of Complex Networks}.
 \newblock {\em PLoS ONE}, 5(8):e11976, 2010.
 
+\bibitem{Leskovec2008}
+Jure Leskovec, Kevin~J. Lang, Anirban Dasgupta, and Michael~W. Mahoney.
+\newblock {Community Structure in Large Networks: Natural Cluster Sizes and the
+  Absence of Large Well-Defined Clusters}.
+\newblock 2008.
+
+\bibitem{Leskovec2014}
+Jure Leskovec, Anand Rajaraman, and Jeffrey~David Ullman.
+\newblock {Mining Social-Network Graphs}.
+\newblock {\em Mining of Massive Datasets}, pages 340--393, 2014.
+
+\bibitem{Lipczak2009}
+Marek Lipczak and Evangelos Milios.
+\newblock {Agglomerative genetic algorithm for clustering in social networks}.
+\newblock {\em Proceedings of the 11th Annual conference on Genetic and
+  evolutionary computation - GECCO '09}, page 1243, 2009.
+
+\bibitem{Liu2013}
+Dayou Liu, Di~Jin, Carlos Baquero, Dongxiao He, Bo~Yang, and Qiangyuan Yu.
+\newblock {Genetic Algorithm with a Local Search Strategy for Discovering
+  Communities in Complex Networks}.
+\newblock {\em International Journal of Computational Intelligence Systems},
+  6(2):354--369, 2013.
+
 \bibitem{Lusseau2003}
 D.~Lusseau.
 \newblock {The emergent properties of a dolphin social network}.
@@ -37,6 +198,17 @@ D.~Lusseau.
 M~Meilă.
 \newblock {Comparing Clusterings}.
 \newblock {\em Journal of Multivariate Analysis}, 98(5):873--895, 2013.
+
+\bibitem{Mitchell1996}
+Melanie Mitchell.
+\newblock {An introduction to genetic algorithms}.
+\newblock {\em Computers {\&} Mathematics with Applications}, 32(6):133, 1996.
+
+\bibitem{Newman2006}
+M~E~J Newman.
+\newblock {Modularity and community structure in networks.}
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, 103(23):8577--8582, 2006.
 
 \bibitem{Peel2016}
 Leto Peel, Daniel~B. Larremore, and Aaron Clauset.
@@ -58,10 +230,30 @@ Pascal Pons and Matthieu Latapy.
 \newblock {\em Journal of Graph Algorithms and Applications}, 10(2):191--218,
   2006.
 
+\bibitem{Schaeffer2007}
+Satu~Elisa Schaeffer.
+\newblock {Graph clustering}.
+\newblock {\em Computer Science Review}, 1(1):27--64, 2007.
+
+\bibitem{Schulz2016}
+Christian Schulz, Sebastian Lamm, Henning Schulz, Demian Hespe, Eike
+  R{\"{o}}hrs, Sebastian~Korbinian Bayer, Christoph Hess, Christian Steiger,
+  Robert Hangu, Marvin Teichmann, Jan Jacob, Fellipe Bernardes-Lima, Matthias
+  Stumpp, and Sergey Hayrapetyan.
+\newblock {Course Notes: Graph Partitioning and Graph Clustering in Theory and
+  Practice}.
+\newblock 2016.
+
 \bibitem{Shi2009}
 Chuan Shi, Yi~Wang, Bin Wu, and Cha Zhong.
 \newblock {A New Genetic Algorithm for Community Detection}.
 \newblock {\em Part II LNICST}, 5:1298--1309, 2009.
+
+\bibitem{Sima2006}
+Jiř{\'{i}} {\v{S}}{\'{i}}ma and Satu~Elisa Schaeffer.
+\newblock {On the NP-Completeness of Some Graph Cluster Measures}.
+\newblock {\em Proceedings of the 32Nd Conference on Current Trends in Theory
+  and Practice of Computer Science}, pages 530--537, 2006.
 
 \bibitem{Simon1989}
 D~Simon.
@@ -69,19 +261,65 @@ D~Simon.
   Report July NAS Systems July Division Mail Stop CA 94035}.
 \newblock 1989.
 
+\bibitem{Tan2002}
+Pang-Ning Tan, Vipin Kumar, and Jaideep Srivastava.
+\newblock {Selecting the Right Interestingness Measure for Association
+  Patterns}.
+\newblock {\em Proceedings of the eighth ACM SIGKDD international conference on
+  Knowledge Discovery and Data Mining - KDD '02}, 2:32--41, 2002.
+
 \bibitem{Tasgin2006}
 Mursel Tasgin and Haluk Bingol.
 \newblock {Community Detection in Complex Networks using Genetic Algorithm}.
 \newblock {\em arXiv preprint}, page~6, 2006.
+
+\bibitem{Ter-sarkisov2011}
+Aram Ter-sarkisov and Stephen Marsland.
+\newblock {Convergence Properties of ( $\mu$ + $\lambda$ ) Evolutionary
+  Algorithms}.
+\newblock (1996):1816--1817, 2011.
+
+\bibitem{Tripathi2016}
+Shailesh Tripathi, Salissou Moutari, Matthias Dehmer, and Frank Emmert-Streib.
+\newblock {Comparison of module detection algorithms in protein networks and
+  investigation of the biological meaning of predicted modules}.
+\newblock {\em BMC Bioinformatics}, 17(1):1--18, 2016.
+
+\bibitem{Uyar2005}
+A.~Şima Uyar and Şule~G{\"{u}}nd{\"{u}}z {\"{O}}ǧ{\"{u}}d{\"{u}}c{\"{u}}.
+\newblock {A new graph-based evolutionary approach to sequence clustering}.
+\newblock {\em Proceedings - ICMLA 2005: Fourth International Conference on
+  Machine Learning and Applications}, 2005:273--278, 2005.
 
 \bibitem{Watts1998}
 D~J~J Watts and S~H~H Strogatz.
 \newblock {Collective dynamics of 'small-world' networks.}
 \newblock {\em Nature}, 393(6684):440--442, 1998.
 
+\bibitem{Yang2015}
+Jaewon Yang and Jure Leskovec.
+\newblock {Defining and evaluating network communities based on ground-truth}.
+\newblock {\em Knowledge and Information Systems}, 42(1):181--213, 2015.
+
+\bibitem{Yang2013}
+Yang Yang, Yizhou Sun, Saurav Pandit, Nitesh~V Chawla, and Jiawei Han.
+\newblock {Mining Social Networks and Security Informatics}.
+\newblock 2013.
+
+\bibitem{Yang2016}
+Zhao Yang, Ren{\'{e}} Algesheimer, and Claudio~J. Tessone.
+\newblock {A Comparative Analysis of Community Detection Algorithms on
+  Artificial Networks}.
+\newblock {\em Scientific Reports}, 6(1):30750, 2016.
+
 \bibitem{Zachary1977}
 Wayne~W. Zachary.
 \newblock {An Information Flow Model for Conflict and Fission in Small Groups}.
 \newblock {\em Journal of Anthropological Research}, 33(4):452--473, 1977.
+
+\bibitem{Zwart2007}
+Sjoerd~D. Zwart and Maarten Franssen.
+\newblock {An impossibility theorem for verisimilitude}.
+\newblock {\em Synthese}, 158(1):75--92, 2007.
 
 \end{thebibliography}

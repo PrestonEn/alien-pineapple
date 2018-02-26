@@ -6,7 +6,7 @@ import os
 import subprocess
 
 
-file = open("bench_settings.txt", "r")
+file = open("girvan_kout", "r")
 FNULL = open(os.devnull, 'w')
 
 for line in file:
@@ -18,10 +18,12 @@ for line in file:
 		print line
 		for i in xrange(int(params[2])):
 		    filename = params[0].strip() + params[1].strip() + "_" + str(i) + ".gml"
+		    print(params[3])
 		    subprocess.call(params[3], shell = True)
 		    g = Graph.Read_Edgelist("network.dat", directed = False)
 		    g.simplify()
 		    # # write to gml
 		    g.write_gml(filename)
 		    # move communities.dat to filename.coms
+		    print(filename)
 		    os.rename("community.dat", filename + ".coms")

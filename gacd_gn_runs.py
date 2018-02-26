@@ -6,7 +6,7 @@ from os.path import isfile, join
 p = psutil.Process(os.getpid())
 p.nice(psutil.REALTIME_PRIORITY_CLASS)
 # get all files in gn folder
-data_path = "benchmark_gen/gml_files/benchmarks/gn/"
+data_path = "benchmark_gen/gml_files/benchmarks/gn_kout/"
 jarpath = "impl_GACD/out/artifacts/impl_GACD_jar/impl_GACD.jar"
 cmd = "java -jar "
 

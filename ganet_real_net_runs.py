@@ -15,5 +15,8 @@ cmd = "java -jar "
 files = [f for f in listdir(data_path) if f.endswith(".gml")]
 print files
 for f in files:
-	subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/default.properties -R=10", shell=True)
-	subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/large.properties -R=10", shell=True)
+	# subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/default.properties -R=10", shell=True)
+	# subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/large.properties -R=10", shell=True)
+	subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/high_elite.properties -R=10", shell=True)
+	subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/low_cross_high_m.properties -R=10", shell=True)
+	subprocess.call(cmd + jarpath + " -G=D:/alien-pineapple/"+ data_path + f + " -P=impl_GANET/balanced_c_m.properties -R=10", shell=True)

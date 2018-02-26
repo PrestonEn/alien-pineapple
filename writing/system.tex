@@ -26,10 +26,10 @@ A regular graph is one whose degree sequence contains only copies of a single in
 The \textit{internal degree} and \textit{external degree}, $k^{int}_i$ and $k^{ext}_i$, with respect to node $i$ being a member of subgraph $C\subset G$, are the sum of edges connecting $i$ to nodes in $C$ and not contained in $C$ respectively. 
 Another useful property of vertices is \textit{clustering} \cite{Watts1998}, or \textit{transitivity} to avoid confusion when dealing with structural clusters. $C_v$, the transitivity of $v$, is the ratio of edges joining pairs of nodes in $\Gamma(v)$, to the total possible number of edges between nodes in $\Gamma(v)$. If we consider the neighborhood of $v$ as a subgraph $S$, the transitivity is given as: $$\dfrac{S_m}{k_v(k_v-1)/2}$$
 
-A common mathmatical procedure to apply to graphs is a \textit{random walk}. As the name implies, it is  randomly generated set of steps along a path. Given a node, selected as the starting point, each step is making the transition from the current node $i$, to the next node $j$, given that $j\in\Gamma{i}$ with the probability $\frac{1}{k_i}$. Random walks have varied applications to problems in graph theory, and are a common feature of community detection methods \cite{Pons2006}.
+A common mathematical procedure to apply to graphs is a \textit{random walk}. As the name implies, it is  randomly generated set of steps along a path. Given a node, selected as the starting point, each step is making the transition from the current node $i$, to the next node $j$, given that $j\in\Gamma{i}$ with the probability $\frac{1}{k_i}$. Random walks have varied applications to problems in graph theory, and are a common feature of community detection methods \cite{Pons2006}.
 
 
-\pagebreak
+
 \subsection{The Adjacency Matrix}
 When dealing with graphs, one of the most effective ways to represent their structure, or \textit{topology}, is an \textit{adjacency matrix}. For a binary graph $G$, its adjacency matrix is an $n\times n$ matrix $A$. Where nodes $i$ and $j$ share an edge, $A_{ij}$ is 1, and otherwise 0. This matrix is symmetric in the case of undirected graphs. The sum of the $i$-th row of $A$ is the degree of node $i$.
 When The graph is weighted, it is indicated as $W$, where connected the element $W_{ij}$ is the weight of adjacent nodes $i$ and $j$.
@@ -37,6 +37,9 @@ When The graph is weighted, it is indicated as $W$, where connected the element 
 \section{Complex Networks}
 The great numbers of applications of graph theory have made it one of the foundational concepts in several fields. With this abundance of interest, a shift has occurred away from understanding local properties in small graphs, to understanding the larger statistical properties of large systems. 
 
+\section{Properties of Real Networks}
+\subsection{The Small World Effect}
+\subsection{Scale Free Networks}
 
 \begin{figure}[!h]
 	\begin{center}
@@ -46,7 +49,6 @@ The great numbers of applications of graph theory have made it one of the founda
 	\label{logo}
 \end{figure}
 
-\subsection{}
 
 \section{Community Detection In Graphs}
 When visualizing real world networks, it is common to see some structure in the noise. In social graphs, these may be close friend groups. In collaboration networks, groups of researchers may interact closely to those in related fields, but rarely with those more removed from their areas of interest. These \textit{communities} can offer a better understanding to how the network is organized, and how these modules may or may not interact. It gives researchers a way to identify smaller sections of interest in networks for closer study. It offers a method to classify nodes based on their role, or relationship to the structure.
@@ -65,7 +67,7 @@ The identification and study of community structure has 3 major advantages \cite
 
 \subsection{Defining Communities}
 
-The problem of community detection is not well defined.
+The problem of community detection is not well defined, and no single approach is widely accepted. The main reason for this is not due to disagreement in techniques, but because it is observed that the success of a definition is sensitive to the domain of the application. 
 
 %% embeddedness perspective
 Embeddedness $\xi_i$ is the ratio $\frac{k^{int}_i}{k_i}$. A higher value of $\xi_i$ indicates that $i$ is more closely associated with its community.   
@@ -77,6 +79,8 @@ Embeddedness $\xi_i$ is the ratio $\frac{k^{int}_i}{k_i}$. A higher value of $\x
 \subsection{Related Problems}
 
 
+\subsection{Applications}
+The detection of community structure in networks has a broad range of applications. As with any clustering approach
 
 
 \section{Genetic Algorithms}
@@ -86,12 +90,15 @@ The early decades of the study of computer science saw many computational strate
 \cite{Ding2007}
 
 \subsection{Motivation}
-
+In many cases, the problem an algorithm has a massive range of solutions. In most cases, an exact solution is not desirable. Algorithms which aim to provide a near-best solution often 
 
 \subsection{Biological Terms}
 As they are biologically inspired, it follows that the components of a GA are written about using corresponding biological terms, although the constructs they refer to in the computational context are much simpler than their living counterparts.
 
-Each and every organism is composed of cells. Every cell contains a set of genetic materials, \textit{chromosomes}, which are the blueprint for the characteristics of the organism. A chromosome can be divided into genes, codes of DNA or RNA defining a function of a molecule. These manifest as traits such as blood type, hair and eye color, strength or intelligence. Depending on its traits, an individual may be more likely to generate offspring. The ability for life to reproduce itself and create future, surviving and multiplying generations is a generalization of what makes a species successful. However, in the natural world, populations are diverse. As reproduce via sexual reproduction, a mixing of genetic material of both parents takes place, and occasionally, an external factor will change the coding of a gene or genes, resulting in a \textit{mutation}.  
+Each and every organism is composed of cells. Every cell contains a set of genetic materials, \textit{chromosomes}, which are the blueprint for the characteristics of the organism. A chromosome can be divided into genes, codes of DNA or RNA defining a function of a molecule. These manifest as traits such as blood type, hair and eye color, strength or intelligence. Depending on its traits, an individual may be more likely to generate offspring. The ability for life to reproduce itself and create future, surviving and multiplying generations is a generalization of what makes a species successful. However, in the natural world, populations are diverse. As reproduce via sexual reproduction, a mixing of genetic material of both parents takes place, described originally by Mendel's laws of genetic inheritance. Occasionally, a random external factor will change the coding of a gene or genes, resulting in a mutation.
+
+This combination of genetic mixing and mutation, in conjunction with the idea that the fittest individuals are more likely to reproduce create a system that is excellent at optimizing organisms. 
+  
 
 \subsection{The Population}
 
