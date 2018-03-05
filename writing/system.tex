@@ -23,10 +23,16 @@ The number of vertices and edges of a graph are indicated with \textit{n} and \t
 A fully connected subgraph is called a \textit{clique}. Endpoints are referred to as \textit{neighbors}, or \textit{adjacent nodes}. The the set of neighbors of vertex \textit{v} is the \textit{neighborhood}, indicated as \textit{$\Gamma(v)$}. $|\Gamma(v)|$, the number of neighbors of \textit{v}, is the degree of \textit{v}, $k_v$. The \textit{degree sequence} of $G$ is the list of degrees for each vertex of $G$, $k_{v1}, k_{v2},..., k_{vn}$. 
 A regular graph is one whose degree sequence contains only copies of a single integer. Directed graphs distinguish between the \textit{indegree} and \textit{outdegree}, the number of edges ending at \textit{v}, and beginning at \textit{v} respectively. While in this paper we limit experiments to unweighted graphs, it is important to understand the extension of edges from being counted as binary entities, to ones with real values. These edge values are called \textit{weights}. The analog to degree of $v$ in these graphs is \textit{strength}, the sum of edge weights adjacent to $v$.
 
+
+If a pair of vertexes are connected, the graph $P$, composed of the set of vertexes $V(P)=\{x_0, x_1, ..., x_{l-1}, x_l\}$ and edges $E(P=\{(x_0,x_1), (x_1,x_2), ...,(x_{l-1}, x_{l})\})$. The vertices $x_0$ and $x_l$ are connected by the set of 
+
 The \textit{internal degree} and \textit{external degree}, $k^{int}_i$ and $k^{ext}_i$, with respect to node $i$ being a member of subgraph $C\subset G$, are the sum of edges connecting $i$ to nodes in $C$ and not contained in $C$ respectively. 
-Another useful property of vertices is \textit{clustering} \cite{Watts1998}, or \textit{transitivity} to avoid confusion when dealing with structural clusters. $C_v$, the transitivity of $v$, is the ratio of edges joining pairs of nodes in $\Gamma(v)$, to the total possible number of edges between nodes in $\Gamma(v)$. If we consider the neighborhood of $v$ as a subgraph $S$, the transitivity is given as: $$\dfrac{S_m}{k_v(k_v-1)/2}$$
+Another useful measure on vertices is \textit{clustering} \cite{Watts1998}, or \textit{transitivity} to avoid confusion when dealing with structural clusters. $C_v$, the transitivity of $v$, is the ratio of edges joining pairs of nodes in $\Gamma(v)$, to the total possible number of edges between nodes in $\Gamma(v)$. For node $v$, the transitivity is given as $$k_v(k_v-1)/2$$. A common way of expressing the transitivity is in the number of triangles formed with $v$.
+
+
 
 A common mathematical procedure to apply to graphs is a \textit{random walk}. As the name implies, it is  randomly generated set of steps along a path. Given a node, selected as the starting point, each step is making the transition from the current node $i$, to the next node $j$, given that $j\in\Gamma{i}$ with the probability $\frac{1}{k_i}$. Random walks have varied applications to problems in graph theory, and are a common feature of community detection methods \cite{Pons2006}.
+
 
 
 
@@ -35,11 +41,19 @@ When dealing with graphs, one of the most effective ways to represent their stru
 When The graph is weighted, it is indicated as $W$, where connected the element $W_{ij}$ is the weight of adjacent nodes $i$ and $j$.
 
 \section{Complex Networks}
-The great numbers of applications of graph theory have made it one of the foundational concepts in several fields. With this abundance of interest, a shift has occurred away from understanding local properties in small graphs, to understanding the larger statistical properties of large systems. 
+The great numbers of applications of graph theory have made it one of the foundational concepts in several fields. With this abundance of interest, a shift has occurred away from understanding local properties in small graphs, to understanding the statistical properties of large systems. 
 
-\section{Properties of Real Networks}
+\section{Properties of Networks}
+
+
 \subsection{The Small World Effect}
+
+
 \subsection{Scale Free Networks}
+
+In regular graphs, the degree distribution is relatively consistent, with very little deviation from the average. In random models, the distribution is related to the probability of linkage. Real world networks rarely, if ever, show these features.
+
+Figure \ref{label} shows the degree distributions of a random graph with 1000 nodes and a linkage probability of 0.01, and a network of protein interactions in yeast. Many real networks show a similar property; the average degree is low, but there is a long tail to the distribution reaching far above the average. This manifests visually as dense hubs. A common example is a social media platform with a "follower" system. Most users will have very few, around the number of people in the average social circle. A contingent of users however, such as celebrities or public figures, will have orders of magnitudes more followers than the typical member.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -75,12 +89,18 @@ Embeddedness $\xi_i$ is the ratio $\frac{k^{int}_i}{k_i}$. A higher value of $\x
 
 \subsection{Complexity}
 
+\subsection{Modularity}
 
 \subsection{Related Problems}
 
 
+
+
 \subsection{Applications}
-The detection of community structure in networks has a broad range of applications. As with any clustering approach
+The detection of community structure in networks has a broad range of applications. As with more traditional clustering methods, the goal is to infer some relationship between elements of a dataset, where explicit divisions of groups are not present. The focus of research is often only on the development and testing of new techniques, with applications to real cases being relativly uncommon as a topic of close investigation. This section is intended to introduce the problem in a context beyond the benchmarks and real world networks used commonly used.
+
+\subsubsection{Biological Networks}
+
 
 
 \section{Genetic Algorithms}
@@ -89,15 +109,14 @@ The early decades of the study of computer science saw many computational strate
 %% early GA application to large data 
 \cite{Ding2007}
 
-\subsection{Motivation}
+\subsection{Motivation and Inspiration}
 In many cases, the problem an algorithm has a massive range of solutions. In most cases, an exact solution is not desirable. Algorithms which aim to provide a near-best solution often 
 
-\subsection{Biological Terms}
 As they are biologically inspired, it follows that the components of a GA are written about using corresponding biological terms, although the constructs they refer to in the computational context are much simpler than their living counterparts.
 
 Each and every organism is composed of cells. Every cell contains a set of genetic materials, \textit{chromosomes}, which are the blueprint for the characteristics of the organism. A chromosome can be divided into genes, codes of DNA or RNA defining a function of a molecule. These manifest as traits such as blood type, hair and eye color, strength or intelligence. Depending on its traits, an individual may be more likely to generate offspring. The ability for life to reproduce itself and create future, surviving and multiplying generations is a generalization of what makes a species successful. However, in the natural world, populations are diverse. As reproduce via sexual reproduction, a mixing of genetic material of both parents takes place, described originally by Mendel's laws of genetic inheritance. Occasionally, a random external factor will change the coding of a gene or genes, resulting in a mutation.
 
-This combination of genetic mixing and mutation, in conjunction with the idea that the fittest individuals are more likely to reproduce create a system that is excellent at optimizing organisms. 
+This combination of genetic mixing and mutation, in conjunction with the fact that the fittest individuals are more likely to reproduce create a system that is excellent at optimizing living things. 
   
 
 \subsection{The Population}

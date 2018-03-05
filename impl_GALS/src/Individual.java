@@ -38,7 +38,11 @@ public class Individual implements Runnable {
             while (niter.hasNext()) {
                 nghIndex.add(niter.next().getIndex());
             }
-            this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
+            if(nghIndex.size() > 0) {
+                this.locus[i] = nghIndex.get(Main.randgen.nextInt(nghIndex.size()));
+            }else{
+                this.locus[i] = i;
+            }
         }
     }
 

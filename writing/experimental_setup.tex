@@ -3,79 +3,55 @@ Here we describe the selected algorithms and their parameters in detail. We also
 
 \section{Selected Algorithms}
 \subsection{Tasgin-Bingol}
-One of the earliest implementations of a genetic algorithm for the network clustering problem \cite{Tasgin2006}, Tasgin and Bingol's approach is an example of one of the more naive approaches. Each individual is represented as an array of size $n$, each index corresponding to a node of the input graph. The population is initialized with a random walk over the graph. . It utilizes modularity as its fitness function. Its mutation operator is simple. For the selected node $i$, select a member of $\Gamma(i)$, and set $i$ to be in its community.
-
-The table \ref{table:1} is an example of referenced \LaTeX elements.
+One of the earliest implementations of a genetic algorithm for the network clustering problem \cite{Tasgin2006}, Tasgin and Bingol's approach is an example of one of the more naive approaches. Each individual is represented as an array of size $n$, each index corresponding to a node of the input graph. The population is initialized by assigning each gene a random integer, bounded by the number of nodes in the graph. A subset of genes, the size of which is defined by a parameter referred to as the \textit{initialization rate} are selected, and propagate their community assignment to their neighbors. It utilizes modularity as its fitness function. Its mutation operator is simple. For the selected node $i$, select a member of $\Gamma(i)$, and set $i$ to be in its community.
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{| c | c | c | c | c |}
+	\begin{tabular}{|l | r|}
 		\hline
-		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
+		\multicolumn{1}{|c|}{\textbf{Parameter}} & \multicolumn{1}{|c|}{\textbf{Default Value}} \\
 		\hline
-		1 & 6 & 87837 & 787 & 6  \\ 
-
 		\hline
+		Population Size & 300 \\
+		\hline
+		Generations & 30 \\
+		\hline
+		Elite Portion & 0.10 \\
+		\hline
+		Mutation Rate  & 0.10 \\
+		\hline
+		Initialization Rate & 0.60 \\
+		\hline
+		Cleaning Rate & 0.50 \\
+		\hline
+		Cleaning Threshold & 0.70 \\
+		\hline
+		Cleaning Portion & 0.50 \\ [0.2ex] 
+		\hline
+		
 	\end{tabular}
-	\caption{Tasgin-Bingol's default parameters}
-	\label{table:1}
+	\caption{Parameters selected as the defaults for our implementation of Tasgin-Bingol's}
+	\label{table:tbgadef}
 \end{table}
+The authors describe a "one-way crossover", to tackle the main issue of the string of groups encoding; The same partition can be represented by multiple chromosomes. The crossover procedure is to randomly select a gene of the first parent, called the \textit{source}. The genes of the parent in this community are then copied to the second parent, the \textit{destination}, who lives on as the offspring.
 
-The
 
-
+This can result in disconnected communities, however this is addressed by another operation introduced by the authors, the \textit{cleanup} phase. In chapter 2, the concept of community variance is introduced. During the cleanup phase of the algorithm, some genes are randomly selected from a portion of individuals, and their community variance computed. If the community variance if above a parameter set by the user, that gene is assigned to the community most common to its neighbors.
+The algorithm was tested by the authors on limited data, with very high parameters for generations and relatively small population sizes. After achieving results similar to those reported in\cite{Tasgin2006}, we choose to use a much more standard set of default parameters, shown in table \ref{table:tbgadef}.
 
 \subsection{GA-Net}
 
+One of the most widely cited examples of a GA approach to network clustering, GA-Net\cite{Pizzuti2008} 
 
-\cite{Pizzuti2008}
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{| c | c | c | c | c |}
-		\hline
-		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
-		\hline
-		1 & 6 & 87837 & 787 & 6  \\ 
-		
-		\hline
-	\end{tabular}
-	\caption{GA-Net's default parameters}
-	\label{table:1}
-\end{table}
 
 
 \subsection{GACD}
 \cite{Shi2009}
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{| c | c | c | c | c |}
-		\hline
-		Population Size & Generations & Crossover Rate & Mutation Rate  & Cleaning Rate \\ [0.5ex] 
-		\hline
-		1 & 6 & 87837 & 787 & 6  \\ 
-		
-		\hline
-	\end{tabular}
-	\caption{GACD's default parameters}
-	\label{table:1}
-\end{table}
+
 
 
 \subsection{GALS}
-\cite{liu2013genetic}
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{| c | c | c |}
-		\hline
-		Population Size & Generations  & a \\ [0.5ex] 
-		\hline
-		1 & 6 & a \\ 
-		
-		\hline
-	\end{tabular}
-	\caption{GALS' default parameters}
-	\label{table:1}
-\end{table}
+GALS\cite{liu2013genetic}
 
 
 \section{The Girvan-Newman Benchmark}
@@ -87,15 +63,26 @@ The GN benchmarks limited size makes it an excellent model candidate for testing
 
 \section{The LFR Benchmark}
 
-
-
-\begin{tabular}{|c|}
-	\hline 
-	Number of Nodes \\ 
-	\hline 
-	Maximum Degree \\ 
-	\hline 
-\end{tabular} 
+\begin{center}
+	\begin{tabular}{ |l | l| } 
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Parameter}} & \multicolumn{1}{|c|}{\textbf{Description}} \\
+		\hline
+		\hline
+		$N$ & Nodes \\ 
+		\hline
+		$k$ & Average Degree \\ 
+		\hline
+		$max_k$ & Maximum Degree \\ 
+		\hline	
+		$mu$ & Mixing Parameter \\ 
+		\hline
+		$min_c$ & Minimum Community Size \\
+		\hline
+		$max_c$ & Maximum Community Size \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
 \cite{Lancichinetti2008}
 
@@ -116,7 +103,6 @@ Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks
 \end{figure}
 
 \subsection{Dolphins}
-shibba shabba
 \cite{Lusseau2003}
 \begin{figure}[!htb]
 	\begin{center}
@@ -126,7 +112,6 @@ shibba shabba
 	\label{logo}
 \end{figure}
 
-blabba blabba
 
 \subsection{College Football}
 
@@ -141,8 +126,17 @@ blabba blabba
 
 
 \subsection{Political Blogs}
-\cite{Adamic2005}
-asdasd
+While the experiments performed have been limited to undirected, unweighted networks, these GA approaches also apply to directed unweighted graphs with little change to the implementation. The Political blogs dataset\cite{Adamic2005} is an observed network, constructed from hyperlinks between blogs focusing on political topics. The data was collected during the course of the United States 2004 federal election campaign. The
+
+\begin{figure}
+	\begin{tabular}{cc}
+		\includegraphics[width=65mm]{images/blogs_total.png} &   \includegraphics[width=65mm]{images/blogs_out.png} \\
+		(a) Total Degree & (b) Outdegree \\[6pt]
+		\multicolumn{2}{c}{\includegraphics[width=65mm]{images/blogs_in.png} }\\
+		\multicolumn{2}{c}{(c) Indegree}
+	\end{tabular}
+	\caption{The total degree, indegree and outdegree distribution for the political blogs network\cite{Kunegis2013}}
+\end{figure}
 
 
 \section{Experiment Description}
@@ -162,4 +156,4 @@ The Normalized Mutual Information (NMI) of a community partition
 
 \section{Comparing Performance}
 
-The evaluation of algorithm performance, relative to set of different algorithms is a problem for statistical anlysis tools. Througho
+The evaluation of algorithm performance, relative to set of different algorithms is a problem for statistical analysis tools. Througho
