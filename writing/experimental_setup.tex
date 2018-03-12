@@ -63,7 +63,8 @@ The GN benchmarks limited size makes it an excellent model candidate for testing
 
 \section{The LFR Benchmark}
 
-\begin{center}
+\begin{table}[h!]
+	\centering
 	\begin{tabular}{ |l | l| } 
 		\hline
 		\multicolumn{1}{|c|}{\textbf{Parameter}} & \multicolumn{1}{|c|}{\textbf{Description}} \\
@@ -82,21 +83,23 @@ The GN benchmarks limited size makes it an excellent model candidate for testing
 		$max_c$ & Maximum Community Size \\ 
 		\hline
 	\end{tabular}
-\end{center}
+		\caption{The parameters of the LFR benchmark generator}
+		\label{table:lfrparams}
+\end{table}
 
 \cite{Lancichinetti2008}
 
 
-\section{Benchmark Generator}
+\subsubsection{Benchmark Generator}
 All synthetic networks were created using Andrea Lancichinetti's benchmark generation applications 
 
 \section{Real World Data}
 \subsection{Zachary's Karate Club}
-Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks used to show an algorithm can effectively identify a set of communities. The graph shows the reported relationships between members of a martial arts club, after a schism was formed by a conflict between the lead instructor and the owner of the club. Though small, the graph shows the expected power law of degree distribution for 
+Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks used to show an algorithm can effectively identify a set of communities. The graph shows the reported relationships between members of a martial arts club, after a schism was formed by a conflict between the lead instructor and the owner of the club. Though small, the graph shows a degree distribution with similar properties to larger examples. Both the instructor and owner are densely connected to the club members who sided with them, with smaller sub-groups forming between members. 
 
 \begin{figure}[!htb]
 	\begin{center}
-		\includegraphics[scale=.5]{images/zachary_degree_dist.png}
+		\includegraphics[scale=.4]{images/zachary_degree_dist.png}
 	\end{center}
 	\caption{Degree distribution of the karate club network\cite{Kunegis2013}}
 	\label{logo}
@@ -106,7 +109,7 @@ Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks
 \cite{Lusseau2003}
 \begin{figure}[!htb]
 	\begin{center}
-		\includegraphics[scale=.5]{images/dolphins_degree_dist.png}
+		\includegraphics[scale=.4]{images/dolphins_degree_dist.png}
 	\end{center}
 	\caption{Degree distribution of the Dolphins network\cite{Kunegis2013}}
 	\label{logo}
@@ -118,7 +121,7 @@ Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks
 \cite{Girvan2002}
 \begin{figure}[!htb]
 	\begin{center}
-		\includegraphics[scale=.5]{images/football.png}
+		\includegraphics[scale=.4]{images/football.png}
 	\end{center}
 	\caption{The College Football network, with conferences grouped as communities}
 	\label{logo}
@@ -126,7 +129,9 @@ Zachary's Karate Club \cite{Zachary1977} is one of the most widely used networks
 
 
 \subsection{Political Blogs}
-While the experiments performed have been limited to undirected, unweighted networks, these GA approaches also apply to directed unweighted graphs with little change to the implementation. The Political blogs dataset\cite{Adamic2005} is an observed network, constructed from hyperlinks between blogs focusing on political topics. The data was collected during the course of the United States 2004 federal election campaign. The
+While the experiments performed have been limited to undirected, unweighted networks, these GA approaches also apply to directed unweighted graphs with little change to the implementation. The Political blogs dataset\cite{Adamic2005} is an observed network, constructed from hyperlinks between blogs focusing on political topics. The data was collected during the course of the United States 2004 federal election campaign. Based on the content of the content of each website, each has been hand labeled as leaning to the left or right of the political spectrum.
+
+The network contains multiple disconnected components of only one node, as well as self-edges, or loops. While a generated network would not assign a single disconnected component a community membership that would be impossible to fulfill, the blogs with no connection to another are still labeled, and will adversely affect the results. For completeness, we present the outputs of both the original network, and a simplified version with no singleton nodes or self edges. 
 
 \begin{figure}
 	\begin{tabular}{cc}
@@ -139,7 +144,7 @@ While the experiments performed have been limited to undirected, unweighted netw
 \end{figure}
 
 
-\section{Experiment Description}
+\section{Clustering Quality Measures}
 The goal of this analysis is to compare the performance of the selected algorithms on a sufficient variety of networks, with sufficient complexity. The collection of generated and real world networks has been selected to reflect other comparative studies, and to extend the observations made in the literature proposing the algorithms. These networks come with ground truth, describing the community structure as it was generated, in the case of the synthetic networks, or as it is generally accepted when using real world data.
 
 When comparing the generated community partitions, we use several measures
@@ -156,4 +161,4 @@ The Normalized Mutual Information (NMI) of a community partition
 
 \section{Comparing Performance}
 
-The evaluation of algorithm performance, relative to set of different algorithms is a problem for statistical analysis tools. Througho
+To compare the effectiveness of each algorithm, each experiment is done in two phases. First, each algorithm is run using each of the parameter sets defined. Each parameter set is then compared using a kruskall-wallis test to determine if there is a significant variation in performance. If so, the parameter set yielding the best mean result is used to compare against the other algorithms.

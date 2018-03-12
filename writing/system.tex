@@ -20,16 +20,14 @@ A partition of a vertex set \textit{V} into two subsets \textit{S} and \textit{V
 A \textit{path} is a finite set of edges that connect two vertices. If, for some vertices in \textit{G} no path exists, \textit{G} is a \textit{disconnected} graph.
 
 The number of vertices and edges of a graph are indicated with \textit{n} and \textit{m}. \textit{n} is the order of a graph, and \textit{m} is the size. The maximum size of a graph if order \textit{n} is $n(n-1)/2$, the number of unordered pairs of vertices. If \textit{G} is of maximum size, each vertex having an edge to every other, it is a \textit{complete graph}. 
-A fully connected subgraph is called a \textit{clique}. Endpoints are referred to as \textit{neighbors}, or \textit{adjacent nodes}. The the set of neighbors of vertex \textit{v} is the \textit{neighborhood}, indicated as \textit{$\Gamma(v)$}. $|\Gamma(v)|$, the number of neighbors of \textit{v}, is the degree of \textit{v}, $k_v$. The \textit{degree sequence} of $G$ is the list of degrees for each vertex of $G$, $k_{v1}, k_{v2},..., k_{vn}$. 
+A fully connected subgraph is called a \textit{clique}. Endpoints are referred to as \textit{neighbors}, or \textit{adjacent nodes}. The the set of neighbors of vertex \textit{v} is the \textit{neighborhood}, indicated as \textit{$\Gamma(v)$}. $|\Gamma(v)|$, the number of neighbors of \textit{v}, is the degree of \textit{v}, $k_v$. The \textit{degree sequence} of $G$ is the list of degrees for each vertex of $G$, $k_{v1}, k_{v2},\dots, k_{vn}$. 
 A regular graph is one whose degree sequence contains only copies of a single integer. Directed graphs distinguish between the \textit{indegree} and \textit{outdegree}, the number of edges ending at \textit{v}, and beginning at \textit{v} respectively. While in this paper we limit experiments to unweighted graphs, it is important to understand the extension of edges from being counted as binary entities, to ones with real values. These edge values are called \textit{weights}. The analog to degree of $v$ in these graphs is \textit{strength}, the sum of edge weights adjacent to $v$.
 
 
-If a pair of vertexes are connected, the graph $P$, composed of the set of vertexes $V(P)=\{x_0, x_1, ..., x_{l-1}, x_l\}$ and edges $E(P=\{(x_0,x_1), (x_1,x_2), ...,(x_{l-1}, x_{l})\})$. The vertices $x_0$ and $x_l$ are connected by the set of 
+If a pair of vertexes are connected, the graph $P$, composed of the set of vertexes $V(P)=\{x_0, x_1,\dots, x_{l-1}, x_l\}$ and edges $E(P=\{(x_0,x_1), (x_1,x_2),\dots,(x_{l-1}, x_{l})\})$. The vertices $x_0$ and $x_l$ are connected by the set of 
 
 The \textit{internal degree} and \textit{external degree}, $k^{int}_i$ and $k^{ext}_i$, with respect to node $i$ being a member of subgraph $C\subset G$, are the sum of edges connecting $i$ to nodes in $C$ and not contained in $C$ respectively. 
-Another useful measure on vertices is \textit{clustering} \cite{Watts1998}, or \textit{transitivity} to avoid confusion when dealing with structural clusters. $C_v$, the transitivity of $v$, is the ratio of edges joining pairs of nodes in $\Gamma(v)$, to the total possible number of edges between nodes in $\Gamma(v)$. For node $v$, the transitivity is given as $$k_v(k_v-1)/2$$. A common way of expressing the transitivity is in the number of triangles formed with $v$.
-
-
+Another useful measure on vertices is \textit{clustering} \cite{Watts1998}, or \textit{transitivity} to avoid confusion when dealing with structural clusters. $C_v$, the transitivity of $v$, is the ratio of edges joining pairs of nodes in $\Gamma(v)$, to the total possible number of edges between nodes in $\Gamma(v)$. For node $v$, the transitivity is given as: $$k_v(k_v-1)/2$$ Another way of expressing the transitivity is in the number of triangles formed with $v$.
 
 A common mathematical procedure to apply to graphs is a \textit{random walk}. As the name implies, it is  randomly generated set of steps along a path. Given a node, selected as the starting point, each step is making the transition from the current node $i$, to the next node $j$, given that $j\in\Gamma{i}$ with the probability $\frac{1}{k_i}$. Random walks have varied applications to problems in graph theory, and are a common feature of community detection methods \cite{Pons2006}.
 
@@ -38,10 +36,10 @@ A common mathematical procedure to apply to graphs is a \textit{random walk}. As
 
 \subsection{The Adjacency Matrix}
 When dealing with graphs, one of the most effective ways to represent their structure, or \textit{topology}, is an \textit{adjacency matrix}. For a binary graph $G$, its adjacency matrix is an $n\times n$ matrix $A$. Where nodes $i$ and $j$ share an edge, $A_{ij}$ is 1, and otherwise 0. This matrix is symmetric in the case of undirected graphs. The sum of the $i$-th row of $A$ is the degree of node $i$.
-When The graph is weighted, it is indicated as $W$, where connected the element $W_{ij}$ is the weight of adjacent nodes $i$ and $j$.
+When The graph is weighted, it is indicated as $W$, where the element $W_{ij}$ is the weight of the edge connecting adjacent nodes $i$ and $j$.
 
 \section{Complex Networks}
-The great numbers of applications of graph theory have made it one of the foundational concepts in several fields. With this abundance of interest, a shift has occurred away from understanding local properties in small graphs, to understanding the statistical properties of large systems. 
+The great numbers of applications of graph theory have made it one of the foundational concepts in several fields. With this abundance of interest, a shift has occurred away from understanding local properties in small graphs, to understanding the statistical properties of large systems. Graphs of natural systems do not follow the same patterns as regular or random graphs, instead exhibiting a mix of properties which show both order and noise. Natural systems are organized 
 
 \section{Properties of Networks}
 
@@ -53,14 +51,27 @@ The great numbers of applications of graph theory have made it one of the founda
 
 In regular graphs, the degree distribution is relatively consistent, with very little deviation from the average. In random models, the distribution is related to the probability of linkage. Real world networks rarely, if ever, show these features.
 
-Figure \ref{label} shows the degree distributions of a random graph with 1000 nodes and a linkage probability of 0.01, and a network of protein interactions in yeast. Many real networks show a similar property; the average degree is low, but there is a long tail to the distribution reaching far above the average. This manifests visually as dense hubs. A common example is a social media platform with a "follower" system. Most users will have very few, around the number of people in the average social circle. A contingent of users however, such as celebrities or public figures, will have orders of magnitudes more followers than the typical member.
+
+Figure \ref{label} shows the degree distributions of a random graph with 1000 nodes and a linkage probability of 0.01, and for a network of protein interactions in yeast. Many real networks show a similar property; the average degree is low, but there is a long tail to the distribution reaching far above the average. This manifests visually as dense hubs. One of the early observations of this fact was made in studies of citations of papers. Most are cited only a few times, while seminal publications are widely cited as the basis of many branching works. When the degree distribution is plotted, the tail of the graph extends t.
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.2]{images/Internet_map_1024.jpg}
+		\includegraphics[scale=0.15]{images/Internet_map_1024.jpg}
 	\end{center}
 	\caption{A section of the Internet, as represented by the Opte Project in 2005.}
 	\label{logo}
+\end{figure}
+
+
+\begin{figure}
+	\begin{tabular}{cc}
+		\includegraphics[width=65mm]{images/blogs_total.png} &   \includegraphics[width=65mm]{images/blogs_out.png} \\
+		(a) Total Degree & (b) Outdegree \\[6pt]
+		\multicolumn{2}{c}{\includegraphics[width=65mm]{images/blogs_in.png} }\\
+		\multicolumn{2}{c}{(c) Indegree}
+	\end{tabular}
+	\caption{The degree distrobution of an \do}
+	\label{power}
 \end{figure}
 
 
@@ -75,31 +86,51 @@ When visualizing real world networks, it is common to see some structure in the 
 \end{figure}
 
 
-Community detection is not a well defined problem, however. A blanket definition for what is a good or bad structure is not offered. Because of this, it is difficult to evaluate and compare methods. A graph being used in the field of communications planning will be completely different in its properties to a network of protein-protein interactions.
-
-The identification and study of community structure has 3 major advantages \cite{Lancichinetti2010}. First, it shows the organization of the graph at a courser level, as if it were compressed. This understanding can allow for better insights into how the network was built, and how it may continue to evolve. Secondly, 
+The identification and study of community structure has three major roles \cite{Lancichinetti2010}. First, it shows the organization of the graph at a courser level, as if its functional units were compressed. This understanding can allow for better insights into how the network was built, and how it may continue to evolve as a system. Secondly, it helps better explain dynamic processes as the take place. Examples like the spread of disease, or ideas over social media are considerably affected by the modular structure of the components of the system. Finally, it provides insight into relationships between entities of the system, which may not be apparent when viewing the system as a whole. 
 
 \subsection{Defining Communities}
 
-The problem of community detection is not well defined, and no single approach is widely accepted. The main reason for this is not due to disagreement in techniques, but because it is observed that the success of a definition is sensitive to the domain of the application. 
+The problem of community detection is not well defined, and no single approach is widely accepted. The main reason for this is not due to disagreement in techniques, but because it is observed that the success of a definition is sensitive to the domain of the application. A graph being used in the field of communications planning will be completely different in its properties to a network of protein-protein interactions. A primary intuition is that a community must contain more edges between members in that community, than between members and outside nodes. This is the starting point for community definitions. 
 
+Given a subgraph $\mathcal{C}$ of graph $G$, where $|\mathcal{C}|= n_c$ and $|G|=n$. The \textit{internal degree} and \textit{external degree}, $k^{int}_v$ and $k^{ext}_v$, with respect to node $v$ being a member of $\mathcal{C}$, are the sum of edges connecting $i$ to nodes in$\mathcal{C}$ and not contained in $\mathcal{C}$ respectively. If $k^{ext}_v=0$, there are no neighbors of $v$ outside of $C$. This makes $\mathcal{C}$ likely a good cluster for $v$. Conversely, if $k^{int}_v=0$, $v$ is completely disjoint to $\mathcal{C}$, and should be considered for a different cluster. The internal degree of a subgraph $\mathcal{C}$, $k^{\mathcal{C}}_{int}$ is the sum of the external degree of every vertex in $\mathcal{C}$. Likewise, the external degree of a subgraph $\mathcal{C}$ $k^{\mathcal{C}}_{ext}$ is the sum of the external degrees of all members of $\mathcal{C}$. Note that the total degree of $\mathcal{C} k^\mathcal{C}=k^{\mathcal{C}}_{int}+k^{\mathcal{C}}_{ext}$.
+%%kinout in terms of cluster
 %% embeddedness perspective
 Embeddedness $\xi_i$ is the ratio $\frac{k^{int}_i}{k_i}$. A higher value of $\xi_i$ indicates that $i$ is more closely associated with its community.   
 
 
 \subsection{Complexity}
+%%np-complete notation
+
+%%graph clustering and related problems are np-hard
 
 \subsection{Modularity}
-
-\subsection{Related Problems}
-
 
 
 
 \subsection{Applications}
-The detection of community structure in networks has a broad range of applications. As with more traditional clustering methods, the goal is to infer some relationship between elements of a dataset, where explicit divisions of groups are not present. The focus of research is often only on the development and testing of new techniques, with applications to real cases being relativly uncommon as a topic of close investigation. This section is intended to introduce the problem in a context beyond the benchmarks and real world networks used commonly used.
+The detection of community structure in networks has a broad range of applications. As with more traditional clustering methods, the goal is to infer some relationship between elements of a dataset, where explicit divisions of groups are not present. The focus of research is often only on the development and testing of new techniques, with applications to real cases being relatively uncommon as a topic of close investigation. This section is intended to introduce the problem in a context beyond the benchmarks and real world networks used commonly used.
 
 \subsubsection{Biological Networks}
+
+\subsubsection{Computing}
+
+\subsubsection{Financial Networks}
+
+
+\subsection{Related Problems}
+
+Community detection is often interchanged with the \textit{graph partitioning problem}. Graph partitioning is a problem that seeks to create a division of a graph, with several constraints. First, the number of partitions is predefined as $k \in \mathbb{N}_1$. Given an undirected graph $G=(V,E)$, a graph partitioning algorithm seeks to divide the nodes into $k$ blocks, with every node being part of exactly one block:
+$$V_1 \cup V_2 \dots \cup V_k = V$$
+$$V_i \cap V_j = \emptyset \forall i\neq j$$
+
+Each block must also adhere to a balancing constraint $\epsilon \in \mathbb{R}\geq0$, such that they are all close in size
+
+$$\forall i \in \{\}, V_i \leq (1+\epsilon)\lceil|V|/k\rceil$$
+
+Another output, besides the partition, is the maximum imbalance $max_i=|V_i|/\lceil|V|/k\rceil$.
+
+Much like community detection, 
+
 
 
 
@@ -114,10 +145,14 @@ In many cases, the problem an algorithm has a massive range of solutions. In mos
 
 As they are biologically inspired, it follows that the components of a GA are written about using corresponding biological terms, although the constructs they refer to in the computational context are much simpler than their living counterparts.
 
-Each and every organism is composed of cells. Every cell contains a set of genetic materials, \textit{chromosomes}, which are the blueprint for the characteristics of the organism. A chromosome can be divided into genes, codes of DNA or RNA defining a function of a molecule. These manifest as traits such as blood type, hair and eye color, strength or intelligence. Depending on its traits, an individual may be more likely to generate offspring. The ability for life to reproduce itself and create future, surviving and multiplying generations is a generalization of what makes a species successful. However, in the natural world, populations are diverse. As reproduce via sexual reproduction, a mixing of genetic material of both parents takes place, described originally by Mendel's laws of genetic inheritance. Occasionally, a random external factor will change the coding of a gene or genes, resulting in a mutation.
+Each and every organism is composed of cells. Every cell contains a set of genetic materials, \textit{chromosomes}, which are the blueprint for the characteristics of the organism. A chromosome can be divided into genes, codes of DNA or RNA defining a function of a molecule. These manifest as traits such as blood type, hair and eye color, strength or intelligence. Depending on its traits, an individual may be more likely to generate offspring. The particular setting of a gene's value is called an allele. Each gene occupies a fixed position, called the locus, on the chromosome. The ability for life to reproduce itself and create future, surviving and multiplying generations is a generalization of what makes a species successful. However, in the natural world, populations are diverse. As reproduce via sexual reproduction, a mixing of genetic material of both parents takes place, described originally by Mendel's laws of genetic inheritance. Occasionally, a random external factor will change the coding of a gene or genes, resulting in a mutation.
 
 This combination of genetic mixing and mutation, in conjunction with the fact that the fittest individuals are more likely to reproduce create a system that is excellent at optimizing living things. 
   
+Genetic algorithms aim to apply these natural processes to optimize solutions to optimization problems. By transforming problem into a representation that allows the application of operators inspired by these natural processes, a framework for exploring complex search spaces to give good approximate solutions can be developed. Genetic algorithms are one such realization of this approach. While no single definition of GA exists, they are generally comprised of a few components: a population of solutions, and a set of operators that affect members of the population to combine and modify solutions.
+
+\subsection{Chromosomes}
+
 
 \subsection{The Population}
 
@@ -134,8 +169,12 @@ This combination of genetic mixing and mutation, in conjunction with the fact th
 \subsubsection{Mutation}
 
 
+\subsection{Genetic Representations of Graphs}
+One of the most important aspect of any algorithmic approach, especially a GA, is how the problem is represented. A community clustering of a graph is composed of $n$ vertices, so an individual should be able to produce a string of $n$ integers. There are two such representations used in the literature. The \textit{string-of-groups} encoding is the first, representing each genome as an array of length $n$. For an individual $S$, the value of the gene $S_i=c$ indicates that node $i$ is a member of community $c$. This arbitrary labeling however, leads to problems with traditional uniform and n-point crossover methods. Several approaches have been shown to work well with this representation by introducing novel crossover methods\cite{Tasgin2006}, but these issues spurred researchers toward developing more complex representations to reduce the need for new crossovers to be designed.
+The second, more recent representation is called the \textit{locus adjacency representation}. It is a true graph based approach, as it relies on the topology of the network to enforce its structure. Each allele takes on an integer value, between 0 and $n$, where $n$ is the number of genes in the chromosome, which follows to be the number of nodes in the graph. The individual is not evaluated directly, but instead encodes a partitioning which can be extracted using a linear time decoding algorithm, described in \ref{locus}. For each element of th
 
 \begin{figure}[!htb]
+	\title{Political Blogs}
 	\begin{center}
 		\includegraphics[scale=.75]{images/genetic_typical.png}
 	\end{center}
@@ -164,4 +203,3 @@ Decode() {
 }
 \end{verbatim}
 \end{table}
-
