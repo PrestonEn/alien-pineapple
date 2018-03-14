@@ -9,24 +9,25 @@
 \contentsline {section}{\numberline {2.3}Properties of Networks}{6}
 \contentsline {subsection}{\numberline {2.3.1}The Small World Effect}{6}
 \contentsline {subsection}{\numberline {2.3.2}Scale Free Networks}{6}
-\contentsline {section}{\numberline {2.4}Community Detection In Graphs}{6}
-\contentsline {subsection}{\numberline {2.4.1}Defining Communities}{8}
+\contentsline {section}{\numberline {2.4}Community Detection In Graphs}{7}
+\contentsline {subsection}{\numberline {2.4.1}Defining Communities}{7}
 \contentsline {subsection}{\numberline {2.4.2}Complexity}{9}
 \contentsline {subsection}{\numberline {2.4.3}Modularity}{9}
 \contentsline {subsection}{\numberline {2.4.4}Applications}{9}
 \contentsline {subsubsection}{Biological Networks}{9}
 \contentsline {subsubsection}{Computing}{9}
 \contentsline {subsubsection}{Financial Networks}{9}
-\contentsline {subsection}{\numberline {2.4.5}Related Problems}{9}
+\contentsline {subsection}{\numberline {2.4.5}Graph Partitioning: A Related Problem}{9}
 \contentsline {section}{\numberline {2.5}Genetic Algorithms}{10}
 \contentsline {subsection}{\numberline {2.5.1}Motivation and Inspiration}{10}
-\contentsline {subsection}{\numberline {2.5.2}Chromosomes}{11}
+\contentsline {subsection}{\numberline {2.5.2}Solutions as Individuals}{11}
 \contentsline {subsection}{\numberline {2.5.3}The Population}{11}
-\contentsline {subsection}{\numberline {2.5.4}Operators}{11}
+\contentsline {subsection}{\numberline {2.5.4}Evolution Strategies}{11}
+\contentsline {subsection}{\numberline {2.5.5}Operators}{11}
 \contentsline {subsubsection}{Selection}{11}
 \contentsline {subsubsection}{Crossover}{11}
 \contentsline {subsubsection}{Mutation}{11}
-\contentsline {subsection}{\numberline {2.5.5}Genetic Representations of Graphs}{11}
+\contentsline {subsection}{\numberline {2.5.6}Genetic Representations of Graphs}{11}
 \contentsline {chapter}{\numberline {3}Literature Review}{14}
 \contentsline {chapter}{\numberline {4}Methodology}{15}
 \contentsline {section}{\numberline {4.1}Selected Algorithms}{15}
