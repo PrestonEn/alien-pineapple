@@ -1,19 +1,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces An undirected graph with 7 nodes and 9 edges.\relax }}{4}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A section of the Internet, as represented by the Opte Project in 2005.\relax }}{6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A section of the Internet, as represented by the Opte Project in 2005.\relax }}{5}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces The degree distribution of a random network of 1000 nodes (a), and of a network of protein interactions in yeast\relax }}{7}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Each shaded area of the graph is a community component\relax }}{8}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces An example of the locus adjacency representation and decoded solution.\relax }}{12}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces The flow of a typical genetic algorithm.\relax }}{13}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The flow of a typical genetic algorithm.\relax }}{13}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces An example of the locus adjacency representation and decoded solution.\relax }}{15}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Degree distribution of the karate club network\cite {Kunegis2013}\relax }}{18}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Degree distribution of the Dolphins network\cite {Kunegis2013}\relax }}{18}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The College Football network, with conferences grouped as communities\relax }}{19}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The total degree, indegree and outdegree distribution for the political blogs network\cite {Kunegis2013}\relax }}{20}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An example of uniform crossover on two locus adjacency chromosomes\relax }}{22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Visualizations of the GN benchmark with increasing $k_{out}$ parameters.\relax }}{23}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Degree distribution of the karate club network\cite {Kunegis2013}\relax }}{26}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The average and best fitness, for each generation of the selected algorithms on 20 runs on the karate club network\relax }}{27}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Community structure of the karate network discovered by GALS.\relax }}{28}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Degree distribution of the Dolphins network\cite {Kunegis2013}\relax }}{28}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The College Football network, with conferences grouped as communities\relax }}{29}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces The average and best fitness, for each generation of the selected algorithms on 20 runs on the political blogs network\relax }}{29}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The total degree, indegree and outdegree distribution for the political blogs network\cite {Kunegis2013}\relax }}{30}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Visualizations of the GN benchmark with increasing $k_{out}$ parameters.\relax }}{32}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

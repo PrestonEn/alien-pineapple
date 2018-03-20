@@ -1,0 +1,16 @@
+kout,filename,impl_TasginGA/default.properties,impl_TasginGA/high_elite.properties,impl_TasginGA/high_init.properties,impl_TasginGA/high_mut.properties,impl_TasginGA/large.properties
+1,girvan_kout_1_0.gml,1,1,1,1,1
+2,girvan_kout_2_0.gml,1,0.997523,1,1,1
+3,girvan_kout_3_0.gml,0.983983,0.949352,0.981731,0.984874,1
+4,girvan_kout_4_0.gml,0.942085,0.882696,0.938744,0.938012,1
+5,girvan_kout_5_0.gml,0.874499,0.783194,0.88613,0.880621,1
+6,girvan_kout_6_0.gml,0.673606,0.555106,0.687552,0.675278,0.96172
+7,girvan_kout_7_0.gml,0.408089,0.310959,0.377029,0.416565,0.775826
+8,girvan_kout_8_0.gml,0.21634,0.174776,0.207875,0.209499,0.318571
+9,girvan_kout_9_0.gml,0.084964,0.085907,0.081083,0.083488,0.082832
+10,girvan_kout_10_0.gml,0.058013,0.053976,0.057011,0.062516,0.038257
+11,girvan_kout_11_0.gml,0.046586,0.043523,0.036791,0.041119,0.038737
+12,girvan_kout_12_0.gml,0.037238,0.039944,0.032293,0.044231,0.028585
+13,girvan_kout_13_0.gml,0.034454,0.03144,0.028707,0.035418,0.018297
+14,girvan_kout_14_0.gml,0.031786,0.031933,0.026173,0.029513,0.015523
+15,girvan_kout_15_0.gml,0.022816,0.030573,0.023768,0.021258,0.012853

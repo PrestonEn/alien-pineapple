@@ -5,30 +5,28 @@ A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: system.aux
 A level-1 auxiliary file: literature_review.aux
 A level-1 auxiliary file: experimental_setup.aux
-A level-1 auxiliary file: synthetic.aux
 A level-1 auxiliary file: real.aux
+A level-1 auxiliary file: synthetic.aux
 A level-1 auxiliary file: conclusion.aux
 The style file: plain.bst
 Database file #1: thesis.bib
-Repeated entry---line 568 of file thesis.bib
+Repeated entry---line 716 of file thesis.bib
+ : @article{Zwart2007
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 754 of file thesis.bib
  : @article{Yang2016
  :                  ,
 I'm skipping whatever remains of this entry
-A bad cross reference---entry "FortunatoL09"
-refers to entry "DBLP:conf/valuetools/2009", which doesn't exist
-Warning--I didn't find a database entry for "holland1975adaptation"
+Repeated entry---line 805 of file thesis.bib
+ : @article{Brandes2003
+ :                     ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "liu2013genetic"
-Warning--I didn't find a database entry for "rand1971"
+Warning--empty publisher in Acharjya2015
+Warning--empty journal in Amor2015
 Warning--there's a number but no volume in Brandes
 Warning--empty year in Brandes
-Warning--empty journal in Danon2006
 Warning--empty journal in Ding2007
-Warning--empty journal in Hric2014
-Warning--empty journal in Leskovec2008
 Warning--empty journal in Peel2016
-Warning--empty journal in Schulz2016
-Warning--empty journal in Simon1989
-Warning--empty journal in Ter-sarkisov2011
-Warning--there's a number but no volume in Ter-sarkisov2011
-Warning--empty journal in Yang2013
-(There were 2 error messages)
+(There were 3 error messages)

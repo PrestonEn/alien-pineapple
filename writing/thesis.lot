@@ -1,11 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Locus Decoding Algorithm\relax }}{13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Parameters selected as the defaults for our implementation of Tasgin-Bingol's\relax }}{16}
-\contentsline {table}{\numberline {4.2}{\ignorespaces The parameters of the LFR benchmark generator\relax }}{17}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Parameters selected as the defaults for our implementation of Tasgin-Bingol's genetic algorithm for community detection, compared to the values reported by the authors\relax }}{20}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Parameters selected as the defaults for our implementation of GA-Net\relax }}{21}
+\contentsline {table}{\numberline {4.3}{\ignorespaces The parameters of the LFR benchmark generator\relax }}{23}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Summary of real world networks\relax }}{25}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Parameters used to generate the LFR benchmarks. Each group was generated with the mixing parameter $\mu $ ranging from 0.1 to 0.6\relax }}{33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,0 +1,16 @@
+filename,impl_GANET/balanced_c_m.properties,impl_GANET/default.properties,impl_GANET/high_elite.properties,impl_GANET/high_r.properties,impl_GANET/higher_r.properties,impl_GANET/large.properties,impl_GANET/large_high_r.properties,impl_GANET/low_cross_high_m.properties
+girvan_kout_10_0.gml,0,0,0,0.01012,0.039699,0,0.040699,0
+girvan_kout_11_0.gml,0,0,0,0.006953,0.030228,0,0.032533,0
+girvan_kout_12_0.gml,0,0,0,0.01066,0.026523,0,0.026896,0
+girvan_kout_13_0.gml,0,0,0,0.004973,0.027051,0,0.016928,0
+girvan_kout_14_0.gml,0,0,0,0.008069,0.015506,0,0.012643,0
+girvan_kout_15_0.gml,0,0,0,0.006643,0.016396,0,0.013813,0
+girvan_kout_1_0.gml,0.997483,1,1,1,1,1,1,0.966106
+girvan_kout_2_0.gml,0.92269,1,1,1,1,1,1,0.796509
+girvan_kout_3_0.gml,0.751589,1,0.987749,1,1,1,1,0.585698
+girvan_kout_4_0.gml,0.324299,0.41327,0.374743,0.983324,0.997483,0.923493,1,0.340099
+girvan_kout_5_0.gml,0,0,0,0.357,0.696308,0,0.949944,0
+girvan_kout_6_0.gml,0,0,0,0.071655,0.182857,0,0.231254,0
+girvan_kout_7_0.gml,0,0,0,0.063633,0.092414,0,0.133016,0
+girvan_kout_8_0.gml,0,0,0,0.009586,0.051204,0,0.059405,0
+girvan_kout_9_0.gml,0,0,0,0.01746,0.045505,0,0.03795,0
